@@ -1,0 +1,511 @@
+{
+  "generated_at": "2026-03-14T05:52:23.362121+00:00",
+  "balance": 100.74,
+  "starting_balance": 100.74,
+  "total_return_pct": 0.0,
+  "total_pnl": 0.0,
+  "win_rate": 0.0,
+  "total_trades": 0,
+  "wins": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "trades": [
+    {
+      "id": "KXLLM1-25MAR31-XAI-2025-03-01T18:10:48.103647Z",
+      "date": "2025-03-01",
+      "ticker": "KXLLM1-25MAR31-XAI",
+      "title": "KXLLM1-25MAR31-XAI",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXAPPRANKFREE-25FEB28-1-CHA-2025-02-27T07:54:37.139323Z",
+      "date": "2025-02-27",
+      "ticker": "KXAPPRANKFREE-25FEB28-1-CHA",
+      "title": "KXAPPRANKFREE-25FEB28-1-CHA",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXSPACEXSTARSHIP-8-25FEB28-2025-02-27T07:48:27.319973Z",
+      "date": "2025-02-27",
+      "ticker": "KXSPACEXSTARSHIP-8-25FEB28",
+      "title": "KXSPACEXSTARSHIP-8-25FEB28",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXSPACEXSTARSHIP-8-25FEB28-2025-02-25T07:17:23.940848Z",
+      "date": "2025-02-25",
+      "ticker": "KXSPACEXSTARSHIP-8-25FEB28",
+      "title": "KXSPACEXSTARSHIP-8-25FEB28",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXLLM1-25FEB28-XAI-2025-02-24T20:33:51.393152Z",
+      "date": "2025-02-24",
+      "ticker": "KXLLM1-25FEB28-XAI",
+      "title": "KXLLM1-25FEB28-XAI",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXLLM1-25FEB28-XAI-2025-02-18T00:13:13.885544Z",
+      "date": "2025-02-18",
+      "ticker": "KXLLM1-25FEB28-XAI",
+      "title": "KXLLM1-25FEB28-XAI",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXBTC-25FEB1417-B97250-2025-02-14T21:59:22.580231Z",
+      "date": "2025-02-14",
+      "ticker": "KXBTC-25FEB1417-B97250",
+      "title": "KXBTC-25FEB1417-B97250",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXSB-25-PHI-2025-02-10T00:02:33.522787Z",
+      "date": "2025-02-10",
+      "ticker": "KXSB-25-PHI",
+      "title": "KXSB-25-PHI",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXHMONTH-25JAN-2025-02-08T02:26:40.743504Z",
+      "date": "2025-02-08",
+      "ticker": "KXHMONTH-25JAN",
+      "title": "KXHMONTH-25JAN",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXHMONTH-25JAN-2025-02-05T01:16:07.990963Z",
+      "date": "2025-02-05",
+      "ticker": "KXHMONTH-25JAN",
+      "title": "KXHMONTH-25JAN",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXDNI-26DEC31-TG-2025-02-05T00:59:24.925043Z",
+      "date": "2025-02-05",
+      "ticker": "KXDNI-26DEC31-TG",
+      "title": "KXDNI-26DEC31-TG",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXHMONTH-25JAN-2025-02-04T21:39:26.357863Z",
+      "date": "2025-02-04",
+      "ticker": "KXHMONTH-25JAN",
+      "title": "KXHMONTH-25JAN",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXDNI-26DEC31-TG-2025-01-31T17:17:01.011564Z",
+      "date": "2025-01-31",
+      "ticker": "KXDNI-26DEC31-TG",
+      "title": "KXDNI-26DEC31-TG",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXHMONTH-25JAN-2025-01-26T16:44:25.712258Z",
+      "date": "2025-01-26",
+      "ticker": "KXHMONTH-25JAN",
+      "title": "KXHMONTH-25JAN",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXFEDDECISION-25JAN-H0-2024-12-29T01:26:47.669176Z",
+      "date": "2024-12-29",
+      "ticker": "KXFEDDECISION-25JAN-H0",
+      "title": "KXFEDDECISION-25JAN-H0",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "TESLA-24-Q4-490000-2024-12-29T01:23:55.516232Z",
+      "date": "2024-12-29",
+      "ticker": "TESLA-24-Q4-490000",
+      "title": "TESLA-24-Q4-490000",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXPAYROLLS-24DEC-T227000-2024-12-17T01:00:37.85254Z",
+      "date": "2024-12-17",
+      "ticker": "KXPAYROLLS-24DEC-T227000",
+      "title": "KXPAYROLLS-24DEC-T227000",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXPAYROLLS-24DEC-T227000-2024-12-16T14:07:35.677657Z",
+      "date": "2024-12-16",
+      "ticker": "KXPAYROLLS-24DEC-T227000",
+      "title": "KXPAYROLLS-24DEC-T227000",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXFEDDECISION-24DEC-C25-2024-12-15T18:08:48.998935Z",
+      "date": "2024-12-15",
+      "ticker": "KXFEDDECISION-24DEC-C25",
+      "title": "KXFEDDECISION-24DEC-C25",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXUHCPLEA-28-2024-12-13T02:26:54.938311Z",
+      "date": "2024-12-13",
+      "ticker": "KXUHCPLEA-28",
+      "title": "KXUHCPLEA-28",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "TESLA-24-Q4-490000-2024-12-02T22:02:35.178501Z",
+      "date": "2024-12-02",
+      "ticker": "TESLA-24-Q4-490000",
+      "title": "TESLA-24-Q4-490000",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "TESLA-24-Q4-490000-2024-12-02T16:01:05.398638Z",
+      "date": "2024-12-02",
+      "ticker": "TESLA-24-Q4-490000",
+      "title": "TESLA-24-Q4-490000",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXTSAW-24DEC01-A2.55-2024-12-01T16:50:12.949294Z",
+      "date": "2024-12-01",
+      "ticker": "KXTSAW-24DEC01-A2.55",
+      "title": "KXTSAW-24DEC01-A2.55",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXTSAW-24DEC01-A2.50-2024-12-01T16:17:02.630762Z",
+      "date": "2024-12-01",
+      "ticker": "KXTSAW-24DEC01-A2.50",
+      "title": "KXTSAW-24DEC01-A2.50",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXTSAW-24DEC01-A2.50-2024-11-30T16:39:32.725721Z",
+      "date": "2024-11-30",
+      "ticker": "KXTSAW-24DEC01-A2.50",
+      "title": "KXTSAW-24DEC01-A2.50",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXTSAW-24DEC01-A2.65-2024-11-30T16:36:54.176318Z",
+      "date": "2024-11-30",
+      "ticker": "KXTSAW-24DEC01-A2.65",
+      "title": "KXTSAW-24DEC01-A2.65",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXTSAW-24DEC01-A2.65-2024-11-30T06:43:03.92895Z",
+      "date": "2024-11-30",
+      "ticker": "KXTSAW-24DEC01-A2.65",
+      "title": "KXTSAW-24DEC01-A2.65",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXTSAW-24DEC01-A2.65-2024-11-30T02:15:44.120933Z",
+      "date": "2024-11-30",
+      "ticker": "KXTSAW-24DEC01-A2.65",
+      "title": "KXTSAW-24DEC01-A2.65",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXTSAW-24DEC01-A2.65-2024-11-30T02:14:00.637111Z",
+      "date": "2024-11-30",
+      "ticker": "KXTSAW-24DEC01-A2.65",
+      "title": "KXTSAW-24DEC01-A2.65",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "TESLA-24-Q4-490000-2024-11-29T16:17:26.342696Z",
+      "date": "2024-11-29",
+      "ticker": "TESLA-24-Q4-490000",
+      "title": "TESLA-24-Q4-490000",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXFEDDECISION-24DEC-C25-2024-11-25T01:10:45.228304Z",
+      "date": "2024-11-25",
+      "ticker": "KXFEDDECISION-24DEC-C25",
+      "title": "KXFEDDECISION-24DEC-C25",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    }
+  ],
+  "equity_curve": [
+    {
+      "date": "2024-11-25",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-11-29",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-11-30",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-12-01",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-12-02",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-12-13",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-12-15",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-12-16",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-12-17",
+      "balance": 100.74
+    },
+    {
+      "date": "2024-12-29",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-01-26",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-01-31",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-04",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-05",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-08",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-10",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-14",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-18",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-24",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-25",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-02-27",
+      "balance": 100.74
+    },
+    {
+      "date": "2025-03-01",
+      "balance": 100.74
+    },
+    {
+      "date": "2026-03-14",
+      "balance": 100.74
+    }
+  ]
+}

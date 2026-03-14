@@ -1,0 +1,16 @@
+# NEVER commit API keys or private keys
+*.pem
+*.key
+kalshi-private*
+*private_key*
+*_secret*
+.env
+config_local.py
+
+# Data files with potentially sensitive info
+data/trade_log.json
+
+# Python
+__pycache__/
+*.pyc
+.DS_Store
