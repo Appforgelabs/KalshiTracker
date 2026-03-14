@@ -12,8 +12,11 @@ permissions:
   id-token: write
 
 jobs:
-  generate-dashboard:
+  generate-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://appforgelabs.github.io/KalshiTracker/
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,15 +31,12 @@ jobs:
 
       - name: Generate dashboard data
         env:
-          KALSHI_KEY_ID: ${{ secrets.KALSHI_KEY_ID }}
           KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
-        run: python3 scripts/generate_dashboard.py
-
-      - name: Copy dashboard_data.json to repo root for Pages
         run: |
-          cp ../kalshi/data/dashboard_data.json . 2>/dev/null || \
-          cp kalshi/data/dashboard_data.json . 2>/dev/null || \
-          echo "Warning: Could not copy dashboard_data.json"
+          # In CI, write dashboard_data.json to the repo root directly
+          python3 scripts/generate_dashboard.py
+          # Ensure dashboard_data.json exists in repo root (generate_dashboard.py writes it there)
+          ls -la dashboard_data.json
 
       - name: Commit and push updated data
         run: |
@@ -45,16 +45,6 @@ jobs:
           git add -A
           git diff --staged --quiet || git commit -m "📊 Auto-update dashboard data — $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
-
-  deploy-pages:
-    needs: generate-dashboard
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
