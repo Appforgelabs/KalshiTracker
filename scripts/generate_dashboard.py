@@ -16,7 +16,14 @@ from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 
 # ── Config ────────────────────────────────────────────────────────────────────
-KEY_ID = "15c58475-10f1-4a58-92e1-70820a1adb34"
+KEY_ID = os.environ.get("KALSHI_KEY_ID", "")
+if not KEY_ID:
+    try:
+        import sys as _sys
+        _sys.path.insert(0, "/Users/sgtclaw/.openclaw/workspace/kalshi")
+        from kalshi_config import KEY_ID
+    except Exception:
+        raise RuntimeError("Set KALSHI_KEY_ID env var or provide kalshi_config.py")
 BASE = "https://api.elections.kalshi.com/trade-api/v2"
 
 # Key loading: GitHub Actions passes KALSHI_PRIVATE_KEY env var; local uses PEM file
