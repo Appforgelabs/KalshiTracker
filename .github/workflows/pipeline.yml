@@ -32,6 +32,7 @@ jobs:
       - name: Generate dashboard data
         env:
           KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
+          KALSHI_KEY_ID: ${{ secrets.KALSHI_KEY_ID }}
         run: |
           # In CI, write dashboard_data.json to the repo root directly
           python3 scripts/generate_dashboard.py
