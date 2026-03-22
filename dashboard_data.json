@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-03-21T06:17:07.379927+00:00",
-  "balance": 100.74,
+  "generated_at": "2026-03-22T06:21:55.685708+00:00",
+  "balance": 69.58,
   "starting_balance": 100.74,
-  "total_return_pct": 0.0,
+  "total_return_pct": -30.93,
   "total_pnl": 0.0,
   "win_rate": 0.0,
   "total_trades": 0,
@@ -10,6 +10,71 @@
   "losses": 0,
   "open_positions": 0,
   "trades": [
+    {
+      "id": "KXETH-26MAR2117-B1970-2026-03-21T18:06:08.123568Z",
+      "date": "2026-03-21",
+      "ticker": "KXETH-26MAR2117-B1970",
+      "title": "KXETH-26MAR2117-B1970",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXETH-26MAR2117-B1970-2026-03-21T18:06:08.093104Z",
+      "date": "2026-03-21",
+      "ticker": "KXETH-26MAR2117-B1970",
+      "title": "KXETH-26MAR2117-B1970",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXETH-26MAR2117-B2050-2026-03-21T18:05:49.480862Z",
+      "date": "2026-03-21",
+      "ticker": "KXETH-26MAR2117-B2050",
+      "title": "KXETH-26MAR2117-B2050",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXETH-26MAR2117-B2050-2026-03-21T18:05:49.458845Z",
+      "date": "2026-03-21",
+      "ticker": "KXETH-26MAR2117-B2050",
+      "title": "KXETH-26MAR2117-B2050",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXETH-26MAR2117-B2090-2026-03-21T18:05:36.593694Z",
+      "date": "2026-03-21",
+      "ticker": "KXETH-26MAR2117-B2090",
+      "title": "KXETH-26MAR2117-B2090",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
     {
       "id": "KXLLM1-25MAR31-XAI-2025-03-01T18:10:48.103647Z",
       "date": "2025-03-01",
@@ -506,6 +571,10 @@
     {
       "date": "2026-03-21",
       "balance": 100.74
+    },
+    {
+      "date": "2026-03-22",
+      "balance": 69.58
     }
   ]
 }
