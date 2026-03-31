@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-03-30T06:43:45.162027+00:00",
-  "balance": 54.93,
+  "generated_at": "2026-03-31T06:35:00.562172+00:00",
+  "balance": 51.43,
   "starting_balance": 100.74,
-  "total_return_pct": -45.47,
+  "total_return_pct": -48.95,
   "total_pnl": 0.0,
   "win_rate": 0.0,
   "total_trades": 0,
@@ -10,6 +10,19 @@
   "losses": 0,
   "open_positions": 0,
   "trades": [
+    {
+      "id": "KXBTCD-26MAR3017-T66249.99-2026-03-30T20:10:39.054961Z",
+      "date": "2026-03-30",
+      "ticker": "KXBTCD-26MAR3017-T66249.99",
+      "title": "KXBTCD-26MAR3017-T66249.99",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
     {
       "id": "KXBTCD-26MAR2821-T66299.99-2026-03-29T00:11:11.360735Z",
       "date": "2026-03-29",
@@ -143,7 +156,11 @@
     },
     {
       "date": "2026-03-30",
-      "balance": 54.93
+      "balance": 100.74
+    },
+    {
+      "date": "2026-03-31",
+      "balance": 51.43
     }
   ]
 }
