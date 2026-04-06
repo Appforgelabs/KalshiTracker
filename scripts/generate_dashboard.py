@@ -50,6 +50,7 @@ REPO_DIR = os.path.dirname(SCRIPT_DIR)
 KALSHI_DATA_DIR = os.path.join(REPO_DIR, "..", "kalshi", "data")
 OUTPUT_FILE = os.path.join(KALSHI_DATA_DIR, "dashboard_data.json")
 TRADE_LOG = os.path.join(KALSHI_DATA_DIR, "trade_log.json")
+PAPER_TRADE_LOG = os.path.join(KALSHI_DATA_DIR, "paper_trades.json")
 
 
 # ── Auth ──────────────────────────────────────────────────────────────────────
@@ -133,11 +134,21 @@ def load_trade_log() -> dict:
     if not os.path.exists(TRADE_LOG):
         return {"trades": [], "starting_balance": 100.74}
     with open(TRADE_LOG) as f:
+        data = json.load(f)
+    if isinstance(data, list):
+        return {"trades": data, "starting_balance": 100.74}
+    return data
+
+
+def load_paper_trade_log() -> dict:
+    if not os.path.exists(PAPER_TRADE_LOG):
+        return {"trades": []}
+    with open(PAPER_TRADE_LOG) as f:
         return json.load(f)
 
 
 def compute_stats(trades: list, balance: float, starting_balance: float) -> dict:
-    """Compute P&L stats from trade list."""
+    """Compute live-account P&L stats from trade list."""
     wins = [t for t in trades if t.get("result") == "win"]
     losses = [t for t in trades if t.get("result") == "loss"]
     open_trades = [t for t in trades if t.get("result") == "open"]
@@ -155,6 +166,26 @@ def compute_stats(trades: list, balance: float, starting_balance: float) -> dict
         "losses": len(losses),
         "open_positions": len(open_trades),
         "total_return_pct": round(total_return_pct, 2),
+    }
+
+
+def compute_paper_stats(paper_trades: list) -> dict:
+    settled = [t for t in paper_trades if t.get("status") in ("paper_win", "paper_loss")]
+    wins = [t for t in settled if t.get("status") == "paper_win"]
+    losses = [t for t in settled if t.get("status") == "paper_loss"]
+    open_trades = [t for t in paper_trades if t.get("status") == "paper_open"]
+    hit_rate = (len(wins) / len(settled) * 100) if settled else 0.0
+    avg_edge = sum(float(t.get("edge", 0) or 0) for t in paper_trades) / len(paper_trades) if paper_trades else 0.0
+    avg_conf = sum(float(t.get("confidence", 0) or 0) for t in paper_trades) / len(paper_trades) if paper_trades else 0.0
+    return {
+        "paper_total": len(paper_trades),
+        "paper_settled": len(settled),
+        "paper_open": len(open_trades),
+        "paper_wins": len(wins),
+        "paper_losses": len(losses),
+        "paper_hit_rate": round(hit_rate, 1),
+        "paper_avg_edge": round(avg_edge * 100, 1),
+        "paper_avg_confidence": round(avg_conf, 1),
     }
 
 
@@ -279,6 +310,11 @@ def main():
     starting_balance = log.get("starting_balance", balance or 100.74)
     print(f"  ✅ Local trades: {len(log_trades)}, starting balance: ${starting_balance:.2f}")
 
+    print("  Loading paper trade log...")
+    paper_log = load_paper_trade_log()
+    paper_trades = paper_log.get("trades", [])
+    print(f"  ✅ Paper trades: {len(paper_trades)}")
+
     # Merge
     print("\n🔀 Merging data sources...")
     all_trades = merge_fills_to_trades(fills, positions, log_trades)
@@ -286,6 +322,7 @@ def main():
 
     # Stats
     stats = compute_stats(all_trades, balance, starting_balance)
+    paper_stats = compute_paper_stats(paper_trades)
     equity_curve = build_equity_curve(all_trades, starting_balance)
 
     # Add current balance point to equity curve
@@ -309,6 +346,8 @@ def main():
         "open_positions": len(positions),
         "trades": all_trades,
         "equity_curve": equity_curve,
+        "paper_stats": paper_stats,
+        "paper_trades": paper_trades,
     }
 
     # Write output — two locations:

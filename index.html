@@ -567,6 +567,11 @@
         <div class="stat-value amber" id="s-starting">—</div>
         <div class="stat-sub">inception</div>
       </div>
+      <div class="stat-box yellow">
+        <div class="stat-label">Paper Hit Rate</div>
+        <div class="stat-value amber" id="s-paper-hitrate">—</div>
+        <div class="stat-sub" id="s-paper-sub">validation week</div>
+      </div>
     </div>
 
     <!-- Row 1: Equity curve + Terminal info -->
@@ -601,6 +606,52 @@
           </div>
           <div id="perf-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"></div>
         </div>
+      </div>
+    </div>
+
+    <!-- Paper Trading Validation -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="bar" style="background:var(--amber);"></div>
+          FX Validation Lab
+        </div>
+        <div class="card-badge" id="paper-count-badge">0 paper trades</div>
+      </div>
+      <div class="grid-3" style="margin-bottom:0;">
+        <div class="stat-box">
+          <div class="stat-label">Paper Settled</div>
+          <div class="stat-value" id="paper-settled">—</div>
+          <div class="stat-sub">wins + losses</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Avg Edge</div>
+          <div class="stat-value" id="paper-edge">—</div>
+          <div class="stat-sub">candidate edge</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Avg Confidence</div>
+          <div class="stat-value" id="paper-confidence">—</div>
+          <div class="stat-sub">model confidence</div>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin-top:16px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Logged</th>
+              <th>Market</th>
+              <th>Side</th>
+              <th>Edge</th>
+              <th>Confidence</th>
+              <th>Status</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody id="paper-tbody">
+            <tr><td colspan="7"><div class="empty-state"><div class="icon">🧪</div><p>No paper trades yet</p><small>FX candidates will land here first</small></div></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -735,6 +786,9 @@ function render(data) {
   document.getElementById('s-trades').textContent = trades;
   document.getElementById('s-open').textContent = openPos;
   document.getElementById('s-starting').textContent = fmt$(start);
+  const ps = data.paper_stats || {};
+  document.getElementById('s-paper-hitrate').textContent = fmtPct(ps.paper_hit_rate || 0);
+  document.getElementById('s-paper-sub').textContent = `${ps.paper_wins || 0}W / ${ps.paper_losses || 0}L · ${ps.paper_open || 0} open`;
 
   // Last updated
   const gen = data.generated_at ? new Date(data.generated_at) : null;
@@ -750,6 +804,9 @@ function render(data) {
 
   // Equity curve
   renderChart(data.equity_curve || [], start);
+
+  // Paper validation
+  renderPaperTrades(data.paper_trades || [], data.paper_stats || {});
 
   // Open positions
   renderPositions(data.trades || []);
@@ -869,6 +926,39 @@ function renderChart(equityCurve, starting) {
     }
   });
   ro.observe(container);
+}
+
+function renderPaperTrades(trades, stats) {
+  document.getElementById('paper-count-badge').textContent = `${trades.length} paper trades`;
+  document.getElementById('paper-settled').textContent = stats.paper_settled || 0;
+  document.getElementById('paper-edge').textContent = (stats.paper_avg_edge || 0).toFixed(1) + '%';
+  document.getElementById('paper-confidence').textContent = (stats.paper_avg_confidence || 0).toFixed(1) + '%';
+
+  const tbody = document.getElementById('paper-tbody');
+  if (!trades || trades.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state"><div class="icon">🧪</div><p>No paper trades yet</p><small>FX candidates will land here first</small></div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = trades.slice().reverse().map(t => {
+    const status = t.status || 'paper_open';
+    const badgeClass = status === 'paper_win' ? 'result-win' : status === 'paper_loss' ? 'result-loss' : 'result-open';
+    const label = status.replace('paper_', '').toUpperCase();
+    const title = (t.title || t.ticker || '—');
+    const shortTitle = title.length > 60 ? title.substring(0, 57) + '...' : title;
+    return `<tr>
+      <td class="mono dim">${fmtDate(t.logged_at || t.date || '')}</td>
+      <td title="${title}">
+        <div style="font-size:10px;color:var(--amber);font-family:var(--mono);">${t.ticker || '—'}</div>
+        <div style="color:var(--text-dim);font-size:11px;">${shortTitle}</div>
+      </td>
+      <td><span style="${t.side === 'yes' ? 'color:var(--green);' : 'color:var(--red);'}font-weight:700;font-family:var(--mono);font-size:11px;">${(t.side||'').toUpperCase()}</span></td>
+      <td class="mono">${((parseFloat(t.edge)||0)*100).toFixed(1)}%</td>
+      <td class="mono">${parseFloat(t.confidence||0).toFixed(0)}%</td>
+      <td><span class="result-badge ${badgeClass}">${label}</span></td>
+      <td class="mono">${fmt$(t.cost_dollars || 0)}</td>
+    </tr>`;
+  }).join('');
 }
 
 function renderPositions(trades) {
