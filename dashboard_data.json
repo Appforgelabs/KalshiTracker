@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06T06:44:03.181999+00:00",
+  "generated_at": "2026-04-07T06:36:36.627499+00:00",
   "balance": 51.43,
   "starting_balance": 100.74,
   "total_return_pct": -48.95,
@@ -159,8 +159,19 @@
       "balance": 100.74
     },
     {
-      "date": "2026-04-06",
+      "date": "2026-04-07",
       "balance": 51.43
     }
-  ]
+  ],
+  "paper_stats": {
+    "paper_total": 0,
+    "paper_settled": 0,
+    "paper_open": 0,
+    "paper_wins": 0,
+    "paper_losses": 0,
+    "paper_hit_rate": 0.0,
+    "paper_avg_edge": 0.0,
+    "paper_avg_confidence": 0.0
+  },
+  "paper_trades": []
 }
