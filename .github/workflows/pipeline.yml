@@ -1,18 +1,17 @@
-name: KalshiTracker Daily Pipeline
+name: KalshiTracker Pages Deploy
 
 on:
-  schedule:
-    # Run every day at 06:00 UTC (2 AM ET)
-    - cron: '0 6 * * *'
-  workflow_dispatch:  # Allow manual trigger
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 jobs:
-  generate-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -20,32 +19,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install cryptography
-
-      - name: Generate dashboard data
-        env:
-          KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
-          KALSHI_KEY_ID: ${{ secrets.KALSHI_KEY_ID }}
-        run: |
-          # In CI, write dashboard_data.json to the repo root directly
-          python3 scripts/generate_dashboard.py
-          # Ensure dashboard_data.json exists in repo root (generate_dashboard.py writes it there)
-          ls -la dashboard_data.json
-
-      - name: Commit and push updated data
-        run: |
-          git config user.email "luka@appforgelabs.com"
-          git config user.name "Luka (KalshiTracker Bot)"
-          git add -A
-          git diff --staged --quiet || git commit -m "📊 Auto-update dashboard data — $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

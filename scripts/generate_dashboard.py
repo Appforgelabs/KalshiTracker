@@ -1,371 +1,119 @@
-"""
-generate_dashboard.py — KalshiTracker data pipeline
-Reads trade_log.json + queries Kalshi API → writes dashboard_data.json
+"""Generate the KalshiTracker dashboard payload.
+
+Local-first behavior:
+- Prefer sibling ../kalshi/data/* files created by the live Grok bot.
+- Fall back to repo-root copies when running in GitHub Actions.
 """
 
-import base64
+from __future__ import annotations
+
 import json
 import os
-import sys
-import time
-import urllib.request
-import urllib.error
-import urllib.parse
-from datetime import datetime, timezone, timedelta
-from cryptography.hazmat.primitives import hashes, serialization
-from cryptography.hazmat.primitives.asymmetric import padding
+from datetime import datetime, timezone
 
-# ── Config ────────────────────────────────────────────────────────────────────
-KEY_ID = os.environ.get("KALSHI_KEY_ID", "")
-if not KEY_ID:
-    try:
-        import sys as _sys
-        _sys.path.insert(0, "/Users/sgtclaw/.openclaw/workspace/kalshi")
-        from kalshi_config import KEY_ID
-    except Exception:
-        raise RuntimeError("Set KALSHI_KEY_ID env var or provide kalshi_config.py")
-BASE = "https://api.elections.kalshi.com/trade-api/v2"
-
-# Key loading: GitHub Actions passes KALSHI_PRIVATE_KEY env var; local uses PEM file
-_env_key = os.environ.get("KALSHI_PRIVATE_KEY", "")
-if _env_key:
-    pem_data = _env_key.encode("utf-8")
-    # Normalize: ensure proper PEM headers if env var is raw base64
-    if not pem_data.strip().startswith(b"-----"):
-        inner = _env_key.strip().replace(" ", "\n")
-        pem_data = f"-----BEGIN RSA PRIVATE KEY-----\n{inner}\n-----END RSA PRIVATE KEY-----\n".encode()
-else:
-    _pem_path = os.environ.get(
-        "KALSHI_PEM_PATH",
-        "/Users/sgtclaw/.openclaw/workspace/data/kalshi-private.pem"
-    )
-    with open(_pem_path, "rb") as f:
-        pem_data = f.read()
-
-privkey = serialization.load_pem_private_key(pem_data, password=None)
-
-# Paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_DIR = os.path.dirname(SCRIPT_DIR)
-KALSHI_DATA_DIR = os.path.join(REPO_DIR, "..", "kalshi", "data")
-OUTPUT_FILE = os.path.join(KALSHI_DATA_DIR, "dashboard_data.json")
-TRADE_LOG = os.path.join(KALSHI_DATA_DIR, "trade_log.json")
-PAPER_TRADE_LOG = os.path.join(KALSHI_DATA_DIR, "paper_trades.json")
+ROOT_DASHBOARD = os.path.join(REPO_DIR, "dashboard_data.json")
+ROOT_PERF = os.path.join(REPO_DIR, "performance_summary.json")
+ROOT_ADVICE = os.path.join(REPO_DIR, "strategy_advice.json")
+
+LOCAL_DATA_DIR = os.path.abspath(os.path.join(REPO_DIR, "..", "kalshi", "data"))
+LOCAL_PERF = os.path.join(LOCAL_DATA_DIR, "performance_summary.json")
+LOCAL_ADVICE = os.path.join(LOCAL_DATA_DIR, "strategy_advice.json")
+LOCAL_TRADE_LOG = os.path.join(LOCAL_DATA_DIR, "trade_log.json")
+LOCAL_OPPS = os.path.join(LOCAL_DATA_DIR, "opportunities.json")
+LOCAL_CONFIG = os.path.join(LOCAL_DATA_DIR, "strategy_config.json")
 
 
-# ── Auth ──────────────────────────────────────────────────────────────────────
-def _sign(text: str) -> str:
-    sig = privkey.sign(
-        text.encode("utf-8"),
-        padding.PSS(
-            mgf=padding.MGF1(hashes.SHA256()),
-            salt_length=padding.PSS.DIGEST_LENGTH,
-        ),
-        hashes.SHA256(),
-    )
-    return base64.b64encode(sig).decode("utf-8")
+def load_json(preferred: str, fallback: str | None = None, default=None):
+    default = {} if default is None else default
+    for path in [preferred, fallback]:
+        if path and os.path.exists(path):
+            try:
+                with open(path) as f:
+                    return json.load(f)
+            except Exception:
+                pass
+    return default
 
 
-def _auth_headers(method: str, path: str) -> dict:
-    ts = str(int(time.time() * 1000))
-    full_path = path if path.startswith("/trade-api/") else "/trade-api/v2" + path
-    msg = ts + method.upper() + full_path
-    sig = _sign(msg)
-    return {
-        "KALSHI-ACCESS-KEY": KEY_ID,
-        "KALSHI-ACCESS-SIGNATURE": sig,
-        "KALSHI-ACCESS-TIMESTAMP": ts,
-        "Content-Type": "application/json",
-        "User-Agent": "KalshiTracker/1.0",
-    }
+def trade_log() -> list[dict]:
+    data = load_json(LOCAL_TRADE_LOG, default=[])
+    if isinstance(data, dict):
+        return data.get("trades", [])
+    return data if isinstance(data, list) else []
 
 
-def kalshi_get(path: str, params: str = "") -> dict:
-    url = BASE + path
-    if params:
-        url += "?" + params
-    headers = _auth_headers("GET", path)
-    req = urllib.request.Request(url, headers=headers, method="GET")
-    try:
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8")
-        raise RuntimeError(f"HTTP {e.code} on {path}: {body}")
-
-
-# ── API helpers ───────────────────────────────────────────────────────────────
-def get_balance() -> float:
-    resp = kalshi_get("/portfolio/balance")
-    return resp.get("balance", 0) / 100.0
-
-
-def get_positions() -> list:
-    """Fetch open positions from Kalshi."""
-    try:
-        resp = kalshi_get("/portfolio/positions", "limit=100&settlement_status=unsettled")
-        return resp.get("market_positions", [])
-    except Exception as e:
-        print(f"  ⚠️  Positions fetch failed: {e}")
-        return []
-
-
-def get_fills() -> list:
-    """Fetch recent fills (completed trades)."""
-    try:
-        resp = kalshi_get("/portfolio/fills", "limit=200")
-        return resp.get("fills", [])
-    except Exception as e:
-        print(f"  ⚠️  Fills fetch failed: {e}")
-        return []
-
-
-def get_market_info(ticker: str) -> dict:
-    """Fetch market details for a ticker."""
-    try:
-        resp = kalshi_get(f"/markets/{ticker}")
-        return resp.get("market", {})
-    except Exception:
-        return {}
-
-
-# ── Trade log helpers ─────────────────────────────────────────────────────────
-def load_trade_log() -> dict:
-    if not os.path.exists(TRADE_LOG):
-        return {"trades": [], "starting_balance": 100.74}
-    with open(TRADE_LOG) as f:
-        data = json.load(f)
-    if isinstance(data, list):
-        return {"trades": data, "starting_balance": 100.74}
-    return data
-
-
-def load_paper_trade_log() -> dict:
-    if not os.path.exists(PAPER_TRADE_LOG):
-        return {"trades": []}
-    with open(PAPER_TRADE_LOG) as f:
-        return json.load(f)
-
-
-def compute_stats(trades: list, balance: float, starting_balance: float) -> dict:
-    """Compute live-account P&L stats from trade list."""
-    wins = [t for t in trades if t.get("result") == "win"]
-    losses = [t for t in trades if t.get("result") == "loss"]
-    open_trades = [t for t in trades if t.get("result") == "open"]
-
-    total_pnl = sum(t.get("pnl", 0) for t in trades)
-    total_trades = len(wins) + len(losses)
-    win_rate = (len(wins) / total_trades * 100) if total_trades > 0 else 0.0
-    total_return_pct = ((balance - starting_balance) / starting_balance * 100) if starting_balance > 0 else 0.0
-
-    return {
-        "total_pnl": round(total_pnl, 2),
-        "win_rate": round(win_rate, 1),
-        "total_trades": total_trades,
-        "wins": len(wins),
-        "losses": len(losses),
-        "open_positions": len(open_trades),
-        "total_return_pct": round(total_return_pct, 2),
-    }
-
-
-def compute_paper_stats(paper_trades: list) -> dict:
-    settled = [t for t in paper_trades if t.get("status") in ("paper_win", "paper_loss")]
-    wins = [t for t in settled if t.get("status") == "paper_win"]
-    losses = [t for t in settled if t.get("status") == "paper_loss"]
-    open_trades = [t for t in paper_trades if t.get("status") == "paper_open"]
-    hit_rate = (len(wins) / len(settled) * 100) if settled else 0.0
-    avg_edge = sum(float(t.get("edge", 0) or 0) for t in paper_trades) / len(paper_trades) if paper_trades else 0.0
-    avg_conf = sum(float(t.get("confidence", 0) or 0) for t in paper_trades) / len(paper_trades) if paper_trades else 0.0
-    return {
-        "paper_total": len(paper_trades),
-        "paper_settled": len(settled),
-        "paper_open": len(open_trades),
-        "paper_wins": len(wins),
-        "paper_losses": len(losses),
-        "paper_hit_rate": round(hit_rate, 1),
-        "paper_avg_edge": round(avg_edge * 100, 1),
-        "paper_avg_confidence": round(avg_conf, 1),
-    }
-
-
-def build_equity_curve(trades: list, starting_balance: float) -> list:
-    """Build equity curve from trade history."""
-    curve = []
-    balance = starting_balance
-
-    # Group by date
-    from collections import defaultdict
-    daily_pnl = defaultdict(float)
-    for t in sorted(trades, key=lambda x: x.get("date", "")):
-        date = t.get("date", "")[:10]
-        pnl = t.get("pnl", 0)
-        if date:
-            daily_pnl[date] += pnl
-
-    running = starting_balance
-    if not daily_pnl:
-        # Just show today
-        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        return [{"date": today, "balance": round(starting_balance, 2)}]
-
-    for date in sorted(daily_pnl.keys()):
-        running += daily_pnl[date]
-        curve.append({"date": date, "balance": round(running, 2)})
-
-    return curve
-
-
-def merge_fills_to_trades(fills: list, positions: list, log_trades: list) -> list:
-    """
-    Merge API fills with local trade log.
-    Returns unified trade list for dashboard.
-    """
-    all_trades = []
-    seen_ids = set()
-
-    # From API fills
-    for fill in fills:
-        fill_id = fill.get("id", "")
-        ticker = fill.get("market_ticker", "")
-        side = fill.get("side", "")
-        price_cents = fill.get("yes_price", fill.get("no_price", 50))
-        count = fill.get("count", 0)
-        created_time = fill.get("created_time", "")
-        date = created_time[:10] if created_time else ""
-
-        # Get market title
-        market_title = fill.get("market_title", ticker)
-
-        cost = round(price_cents / 100.0 * count, 2)
-        trade_id = fill_id or f"{ticker}-{created_time}"
-
-        if trade_id not in seen_ids:
-            seen_ids.add(trade_id)
-            all_trades.append({
-                "id": trade_id,
-                "date": date,
-                "ticker": ticker,
-                "title": market_title,
-                "side": side,
-                "price": round(price_cents / 100.0, 2),
-                "contracts": count,
-                "cost": cost,
-                "result": "open",  # Will be updated when position resolves
-                "pnl": 0.0,
-                "source": "api",
+def open_positions(trades: list[dict]) -> list[dict]:
+    rows = []
+    for t in trades:
+        if t.get("status") == "placed" and t.get("result") not in {"win", "loss"}:
+            rows.append({
+                "ticker": t.get("ticker"),
+                "title": t.get("title", t.get("ticker")),
+                "side": t.get("side"),
+                "cost_dollars": t.get("cost_dollars", t.get("cost", 0)),
+                "price": t.get("price", 0),
+                "confidence": t.get("confidence", 0),
+                "edge_pct": t.get("edge_pct", 0),
+                "opened_at": t.get("date"),
+                "signal_source": t.get("signal_source"),
+                "metadata": t.get("metadata", {}),
             })
-
-    # From local trade log
-    for t in log_trades:
-        trade_id = t.get("id", t.get("ticker", "") + t.get("date", ""))
-        if trade_id not in seen_ids:
-            seen_ids.add(trade_id)
-            all_trades.append({
-                "id": trade_id,
-                "date": t.get("date", ""),
-                "ticker": t.get("ticker", ""),
-                "title": t.get("title", t.get("ticker", "")),
-                "side": t.get("side", ""),
-                "price": t.get("price", 0.0),
-                "contracts": t.get("contracts", 0),
-                "cost": t.get("cost", 0.0),
-                "result": t.get("result", "open"),
-                "pnl": t.get("pnl", 0.0),
-                "source": "log",
-            })
-
-    # Sort by date desc
-    all_trades.sort(key=lambda x: x.get("date", ""), reverse=True)
-    return all_trades
+    rows.sort(key=lambda x: x.get("opened_at") or "", reverse=True)
+    return rows[:15]
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
-def main():
-    print("🎯 KalshiTracker Dashboard Generator")
-    print("=" * 50)
+def latest_opportunities() -> list[dict]:
+    payload = load_json(LOCAL_OPPS, default={"opportunities": []})
+    opps = payload.get("opportunities", []) if isinstance(payload, dict) else []
+    opps.sort(key=lambda x: (x.get("edge", 0), x.get("confidence", 0)), reverse=True)
+    return opps[:12]
 
-    # Fetch balance
-    print("\n📊 Fetching account data...")
-    try:
-        balance = get_balance()
-        print(f"  ✅ Balance: ${balance:.2f}")
-    except Exception as e:
-        print(f"  ❌ Balance error: {e}")
-        balance = 0.0
 
-    # Fetch positions and fills
-    print("  Fetching positions...")
-    positions = get_positions()
-    print(f"  ✅ Open positions: {len(positions)}")
+def copy_root_json(data: dict, path: str) -> None:
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
 
-    print("  Fetching fills...")
-    fills = get_fills()
-    print(f"  ✅ Fills: {len(fills)}")
 
-    # Load local trade log
-    print("\n📂 Loading trade log...")
-    log = load_trade_log()
-    log_trades = log.get("trades", [])
-    starting_balance = log.get("starting_balance", balance or 100.74)
-    print(f"  ✅ Local trades: {len(log_trades)}, starting balance: ${starting_balance:.2f}")
+def main() -> None:
+    perf = load_json(LOCAL_PERF, ROOT_PERF, default={})
+    advice = load_json(LOCAL_ADVICE, ROOT_ADVICE, default={})
+    config = load_json(LOCAL_CONFIG, default={})
+    trades = trade_log()
+    open_trades = open_positions(trades)
 
-    print("  Loading paper trade log...")
-    paper_log = load_paper_trade_log()
-    paper_trades = paper_log.get("trades", [])
-    print(f"  ✅ Paper trades: {len(paper_trades)}")
-
-    # Merge
-    print("\n🔀 Merging data sources...")
-    all_trades = merge_fills_to_trades(fills, positions, log_trades)
-    print(f"  ✅ Total trades: {len(all_trades)}")
-
-    # Stats
-    stats = compute_stats(all_trades, balance, starting_balance)
-    paper_stats = compute_paper_stats(paper_trades)
-    equity_curve = build_equity_curve(all_trades, starting_balance)
-
-    # Add current balance point to equity curve
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    if equity_curve and equity_curve[-1]["date"] != today:
-        equity_curve.append({"date": today, "balance": round(balance, 2)})
-    elif not equity_curve:
-        equity_curve = [{"date": today, "balance": round(balance, 2)}]
-
-    # Build output
-    dashboard_data = {
+    dashboard = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "balance": round(balance, 2),
-        "starting_balance": round(starting_balance, 2),
-        "total_return_pct": stats["total_return_pct"],
-        "total_pnl": stats["total_pnl"],
-        "win_rate": stats["win_rate"],
-        "total_trades": stats["total_trades"],
-        "wins": stats["wins"],
-        "losses": stats["losses"],
-        "open_positions": len(positions),
-        "trades": all_trades,
-        "equity_curve": equity_curve,
-        "paper_stats": paper_stats,
-        "paper_trades": paper_trades,
+        "project": {
+            "name": "KalshiTracker",
+            "tagline": "Grok trades. GPT audits. Dashboard keeps score.",
+        },
+        "account": perf.get("account", {}),
+        "config": config or perf.get("config", {}),
+        "heuristic": advice.get("heuristic", {}),
+        "gpt_review": advice.get("gpt_review", {}),
+        "families": perf.get("families", []),
+        "models": perf.get("models", []),
+        "strategies": perf.get("strategies", []),
+        "confidence_buckets": perf.get("confidence_buckets", []),
+        "edge_buckets": perf.get("edge_buckets", []),
+        "equity_curve": perf.get("equity_curve", []),
+        "recent_settled": perf.get("recent_settled", []),
+        "open_positions": open_trades,
+        "latest_opportunities": advice.get("latest_opportunities") or latest_opportunities(),
     }
 
-    # Write output — two locations:
-    # 1) kalshi/data/dashboard_data.json (canonical, for local dev)
-    # 2) repo root dashboard_data.json (for GitHub Pages fetch fallback)
-    os.makedirs(KALSHI_DATA_DIR, exist_ok=True)
-    with open(OUTPUT_FILE, "w") as f:
-        json.dump(dashboard_data, f, indent=2, default=str)
+    copy_root_json(dashboard, ROOT_DASHBOARD)
+    copy_root_json(perf, ROOT_PERF)
+    copy_root_json(advice, ROOT_ADVICE)
 
-    # Also write to repo root for GitHub Pages
-    root_output = os.path.join(REPO_DIR, "dashboard_data.json")
-    with open(root_output, "w") as f:
-        json.dump(dashboard_data, f, indent=2, default=str)
-
-    print(f"\n✅ Dashboard data written:")
-    print(f"   → {OUTPUT_FILE}")
-    print(f"   → {root_output}")
-    print(f"   Balance: ${balance:.2f} | P&L: ${stats['total_pnl']:+.2f} | Win rate: {stats['win_rate']:.1f}%")
+    print(json.dumps({
+        "generated_at": dashboard["generated_at"],
+        "settled_trades": dashboard["account"].get("settled_trades", 0),
+        "open_trades": dashboard["account"].get("open_trades", 0),
+        "gpt_review_status": dashboard["gpt_review"].get("status", "missing"),
+    }, indent=2))
 
 
 if __name__ == "__main__":

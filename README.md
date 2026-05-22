@@ -1,34 +1,42 @@
-# 🎯 KalshiTracker
+# KalshiTracker
 
-**Kalshi Prediction Market Portfolio Dashboard** — GitHub Pages site tracking trades, P&L, and equity curve.
+Kalshi command center for Jigar's bot stack.
 
-## 🔗 Live Dashboard
+## What it does
 
-**[→ https://appforgelabs.github.io/KalshiTracker/](https://appforgelabs.github.io/KalshiTracker/)**
+- **Grok** scores live Kalshi candidates from X/news before trades fire.
+- **GPT** reviews the trade ledger, flags what’s working, and suggests tighter guardrails.
+- **Dashboard** shows balance, win/loss, expectancy, open positions, recent opportunities, and strategy advice.
 
-## Features
+## Live site
 
-- 📊 Real-time balance & P&L from Kalshi API
-- 📈 Equity curve (Lightweight Charts)
-- 🗂️ Trade history table with win/loss tracking
-- 💼 Open positions view
-- 🤖 Auto-updates daily via GitHub Actions
+<https://appforgelabs.github.io/KalshiTracker/>
 
-## Setup
+## Data flow
 
-### Local dev
-```bash
-pip install cryptography
-python3 scripts/generate_dashboard.py
-# Open index.html in browser
+```text
+kalshi/run_scanner.py
+  -> kalshi/place_trade.py logs trades
+  -> kalshi/analytics.py builds performance_summary.json + strategy_advice.json
+  -> KalshiTracker/scripts/generate_dashboard.py builds dashboard_data.json
+  -> KalshiTracker/scripts/publish_dashboard.py commits/pushes the site
 ```
 
-### GitHub Actions
-Set the `KALSHI_PRIVATE_KEY` repository secret (raw PEM content of your Kalshi private key).
+## Local refresh
 
-The pipeline runs daily at 06:00 UTC and auto-deploys to GitHub Pages.
+```bash
+cd /Users/sgtclaw/.openclaw/workspace/KalshiTracker
+python3 scripts/publish_dashboard.py
+```
 
-## Data
+Skip the GPT review pass if you just want a fast dashboard refresh:
 
-- `dashboard_data.json` — Generated data file (auto-updated)
-- `scripts/generate_dashboard.py` — Data pipeline script
+```bash
+python3 scripts/publish_dashboard.py --no-gpt
+```
+
+## Notes
+
+- Local data from `../kalshi/data/` is the source of truth.
+- GitHub Pages is the viewing layer, not the trading brain.
+- The adaptive config is advisory for now. That’s intentional — tiny samples are where dumb overfitting is born.
