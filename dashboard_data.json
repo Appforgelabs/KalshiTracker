@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T18:30:51.347646+00:00",
+  "generated_at": "2026-05-22T18:31:45.328683+00:00",
   "project": {
     "name": "KalshiTracker",
     "tagline": "Grok trades. GPT audits. Dashboard keeps score."
@@ -35,7 +35,7 @@
     ]
   },
   "heuristic": {
-    "generated_at": "2026-05-22T18:30:23.288657+00:00",
+    "generated_at": "2026-05-22T18:31:30.065921+00:00",
     "headline": "Cautious tighten-up",
     "recommended_config": {
       "max_trade_dollars": 5.0,
@@ -59,8 +59,43 @@
     "best_edge_floor": 15
   },
   "gpt_review": {
-    "status": "skipped",
-    "reason": "not run"
+    "status": "ok",
+    "verdict": "RED LIGHT \u2014 the legacy rule engine is unfit for capital and should be treated as failed until revalidated from scratch.",
+    "thesis": "An 0-8 settled record with -48.95% account drawdown is not noise; it is proof that the old edge model is hallucinating edge and confidence. The only sane move is to quarantine the failed families, shrink size, and force much stricter entry standards on anything that remains live.",
+    "strengths": [
+      "Losses are clearly attributable to one poisoned family and one poisoned model, which makes the failure diagnosable.",
+      "The system is already separating model, strategy, and family performance, so bad components can be isolated fast.",
+      "Open Grok/live positions are at least segregated from the failed legacy stack, which gives you a clean lane to evaluate new logic separately."
+    ],
+    "problems": [
+      "Crypto produced all 8 settled losses and nearly halved the account, so that family is decisively disqualified.",
+      "The rule model showed 48.71% average edge and 78.4 average confidence while going 0-for-8, which means calibration is garbage.",
+      "Legacy_macro is especially toxic: 4 trades, 4 losses, -33.38 PnL, and absurd 87.8 confidence.",
+      "ETH bracket trades were structurally misunderstood; three near-max-confidence bets all went to zero, which is process failure not variance.",
+      "Position sizing was too aggressive for an unproven strategy set, especially the ~$10 ETH losses on a ~$100 account.",
+      "There is no evidence of a functioning kill switch; the bot kept firing after repeated losses instead of stopping the bleeding."
+    ],
+    "actions": [
+      "Permanently block crypto, bracket/range contracts, and any timezone-arbitrage style logic until separately backtested and proven.",
+      "Disable the rule, arb, legacy_macro, timezone_arb, timezone_arbitrage, and eth_bracket_analysis pipelines immediately.",
+      "Allow only Grok-driven single-event markets with plain resolution rules and concrete catalysts.",
+      "Cut stake size to 5% of balance max until the new stack logs at least 20 settled trades with positive expectancy.",
+      "Add a hard kill switch: stop new entries after 3 consecutive settled losses, 10% incremental drawdown, or any confidence-over-85 loss caused by resolution misunderstanding.",
+      "Require a pre-trade checklist with market structure validation, resolution logic confirmation, catalyst source, and post-close audit.",
+      "Rebuild confidence scoring from scratch; cap effective confidence until live calibration proves it maps to outcomes.",
+      "Do not re-enable props until core moneyline-style markets show actual edge and discipline."
+    ],
+    "recommended_config": {
+      "min_confidence": 72,
+      "min_edge_pct": 20,
+      "size_fraction_of_balance": 0.05,
+      "hard_blocked_families": [
+        "crypto",
+        "fx",
+        "multi",
+        "props"
+      ]
+    }
   },
   "families": [
     {
