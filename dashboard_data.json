@@ -1,15 +1,80 @@
 {
-  "generated_at": "2026-05-21T07:24:18.767713+00:00",
-  "balance": 41.66,
+  "generated_at": "2026-05-22T07:20:41.332297+00:00",
+  "balance": 45.05,
   "starting_balance": 100.74,
-  "total_return_pct": -58.65,
+  "total_return_pct": -55.28,
   "total_pnl": 0.0,
   "win_rate": 0.0,
   "total_trades": 0,
   "wins": 0,
   "losses": 0,
-  "open_positions": 1,
+  "open_positions": 0,
   "trades": [
+    {
+      "id": "KXNBAGAME-26MAY21CLENYK-NYK-2026-05-21T14:55:22.724254Z",
+      "date": "2026-05-21",
+      "ticker": "KXNBAGAME-26MAY21CLENYK-NYK",
+      "title": "KXNBAGAME-26MAY21CLENYK-NYK",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXNBAGAME-26MAY21CLENYK-CLE-2026-05-21T14:54:08.359869Z",
+      "date": "2026-05-21",
+      "ticker": "KXNBAGAME-26MAY21CLENYK-CLE",
+      "title": "KXNBAGAME-26MAY21CLENYK-CLE",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXNBAGAME-26MAY21CLENYK-CLE-2026-05-21T14:53:25.657681Z",
+      "date": "2026-05-21",
+      "ticker": "KXNBAGAME-26MAY21CLENYK-CLE",
+      "title": "KXNBAGAME-26MAY21CLENYK-CLE",
+      "side": "no",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXNBAPTS-26MAY21CLENYK-NYKJBRUNSON11-25-2026-05-21T14:04:53.901269Z",
+      "date": "2026-05-21",
+      "ticker": "KXNBAPTS-26MAY21CLENYK-NYKJBRUNSON11-25",
+      "title": "KXNBAPTS-26MAY21CLENYK-NYKJBRUNSON11-25",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
+    {
+      "id": "KXNBAGAME-26MAY21CLENYK-CLE-2026-05-21T12:01:52.786911Z",
+      "date": "2026-05-21",
+      "ticker": "KXNBAGAME-26MAY21CLENYK-CLE",
+      "title": "KXNBAGAME-26MAY21CLENYK-CLE",
+      "side": "yes",
+      "price": 0.5,
+      "contracts": 0,
+      "cost": 0.0,
+      "result": "open",
+      "pnl": 0.0,
+      "source": "api"
+    },
     {
       "id": "KXMLBGAME-26MAY201840ATLMIA-ATL-2026-05-21T00:00:47.110089Z",
       "date": "2026-05-21",
@@ -191,6 +256,10 @@
     {
       "date": "2026-05-21",
       "balance": 100.74
+    },
+    {
+      "date": "2026-05-22",
+      "balance": 45.05
     }
   ],
   "paper_stats": {
