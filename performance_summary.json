@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T00:00:58.567407+00:00",
+  "generated_at": "2026-05-23T12:01:16.960883+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -19,7 +19,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 8,
-    "open_trades": 7,
+    "open_trades": 8,
     "wins": 0,
     "losses": 8,
     "win_rate": 0.0,
@@ -88,6 +88,20 @@
       "profit_factor": 0.0
     },
     {
+      "name": "soccer",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
+    },
+    {
       "name": "crypto",
       "trades": 8,
       "settled": 8,
@@ -105,7 +119,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 7,
+      "trades": 8,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -135,7 +149,7 @@
   "strategies": [
     {
       "name": "grok_live",
-      "trades": 7,
+      "trades": 8,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -179,6 +193,20 @@
   "confidence_buckets": [
     {
       "name": "75-79",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
+    },
+    {
+      "name": "80-84",
       "trades": 1,
       "settled": 0,
       "wins": 0,
@@ -265,6 +293,20 @@
     },
     {
       "name": "10-14",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
+    },
+    {
+      "name": "40-44",
       "trades": 1,
       "settled": 0,
       "wins": 0,
@@ -559,6 +601,43 @@
     }
   ],
   "recent_open": [
+    {
+      "ticker": "KXLALIGASPREAD-26MAY23VCFBAR-BAR1",
+      "title": "Barcelona wins by over 1.5 goals? [YES=Barcelona wins by over 1.5 goals | NO=Barcelona wins by over 1.5 goals]",
+      "side": "yes",
+      "count": 17,
+      "contracts": 17,
+      "price": 0.28,
+      "cost_dollars": 4.76,
+      "cost": 4.76,
+      "max_profit_dollars": 12.24,
+      "max_profit": 12.24,
+      "confidence": 80.0,
+      "edge_pct": 40.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-05-23T12:00:57.374902+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "soccer",
+        "fair_yes_prob": 0.68,
+        "x_sentiment": "bullish",
+        "news_summary": "Barcelona are La Liga champions playing final match vs Valencia; expected goals ~2.95 with Valencia missing key players.",
+        "hours_until_expiry": 10.99,
+        "yes_ask": 0.28,
+        "no_ask": 0.73,
+        "volume": 4379.22,
+        "reason": "Barca are massive favorites and historically dominant at Mestalla. Over 1.5 goals for Barcelona is heavily bet on X and should clear ~68-72% of the time. Kalshi yes at 0.28 offers clear positive EV."
+      },
+      "order_id": "fe5d17a6-c907-4043-998d-7155d7426567",
+      "family": "soccer",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-05-23T12:00:57.374902+00:00",
+      "resolved_at": null
+    },
     {
       "ticker": "KXNBAREB-26MAY22OKCSAS-SASVWEMBANYAMA1-15",
       "title": "Victor Wembanyama: 15+ rebounds [YES=Victor Wembanyama: 15+ | NO=Victor Wembanyama: 15+]",
