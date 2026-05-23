@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T16:01:20.512603+00:00",
+  "generated_at": "2026-05-23T18:01:13.866755+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -19,7 +19,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 8,
-    "open_trades": 9,
+    "open_trades": 10,
     "wins": 0,
     "losses": 8,
     "win_rate": 0.0,
@@ -89,7 +89,7 @@
     },
     {
       "name": "soccer",
-      "trades": 2,
+      "trades": 3,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -119,7 +119,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 9,
+      "trades": 10,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -149,7 +149,7 @@
   "strategies": [
     {
       "name": "grok_live",
-      "trades": 9,
+      "trades": 10,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -207,7 +207,7 @@
     },
     {
       "name": "80-84",
-      "trades": 2,
+      "trades": 3,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -321,7 +321,7 @@
     },
     {
       "name": "30-34",
-      "trades": 1,
+      "trades": 2,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -615,6 +615,43 @@
     }
   ],
   "recent_open": [
+    {
+      "ticker": "KXLALIGAGAME-26MAY23VCFBAR-BAR",
+      "title": "Valencia vs Barcelona Winner? [YES=Barcelona | NO=Barcelona]",
+      "side": "yes",
+      "count": 7,
+      "contracts": 7,
+      "price": 0.49,
+      "cost_dollars": 3.43,
+      "cost": 3.43,
+      "max_profit_dollars": 3.57,
+      "max_profit": 3.57,
+      "confidence": 80.0,
+      "edge_pct": 33.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-05-23T18:00:57.310322+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "soccer",
+        "fair_yes_prob": 0.82,
+        "x_sentiment": "bullish",
+        "news_summary": "Barcelona are La Liga champions with dominant H2H at Mestalla; Valencia outclassed and missing key players.",
+        "hours_until_expiry": 4.0,
+        "yes_ask": 0.49,
+        "no_ask": 0.52,
+        "volume": 579290.53,
+        "reason": "Barca should be heavy favorites even away. X shows consistent expectation of comfortable Barca win. Kalshi yes at 0.49 is severely underpriced with clear favorite and no upset catalyst; strongest actionable edge."
+      },
+      "order_id": "96e710af-d61c-42fd-8474-510ecc118025",
+      "family": "soccer",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-05-23T18:00:57.310322+00:00",
+      "resolved_at": null
+    },
     {
       "ticker": "KXLALIGAGAME-26MAY23VCFBAR-BAR",
       "title": "Valencia vs Barcelona Winner? [YES=Barcelona | NO=Barcelona]",
