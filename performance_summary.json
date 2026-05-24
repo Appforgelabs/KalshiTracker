@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T20:01:07.051850+00:00",
+  "generated_at": "2026-05-24T22:01:20.021956+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -19,7 +19,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 8,
-    "open_trades": 11,
+    "open_trades": 12,
     "wins": 0,
     "losses": 8,
     "win_rate": 0.0,
@@ -47,7 +47,7 @@
     },
     {
       "name": "mlb",
-      "trades": 2,
+      "trades": 3,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -119,7 +119,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 11,
+      "trades": 12,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -149,7 +149,7 @@
   "strategies": [
     {
       "name": "grok_live",
-      "trades": 11,
+      "trades": 12,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -235,7 +235,7 @@
     },
     {
       "name": "70-74",
-      "trades": 3,
+      "trades": 4,
       "settled": 2,
       "wins": 0,
       "losses": 2,
@@ -322,6 +322,20 @@
     {
       "name": "30-34",
       "trades": 2,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
+    },
+    {
+      "name": "65-69",
+      "trades": 1,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -615,6 +629,43 @@
     }
   ],
   "recent_open": [
+    {
+      "ticker": "KXMLBGAME-26MAY241610ATHSD-ATH",
+      "title": "A's vs San Diego Winner? [YES=A's | NO=A's]",
+      "side": "no",
+      "count": 31,
+      "contracts": 31,
+      "price": 0.12,
+      "cost_dollars": 3.72,
+      "cost": 3.72,
+      "max_profit_dollars": 27.28,
+      "max_profit": 27.28,
+      "confidence": 70.0,
+      "edge_pct": 66.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-05-24T22:01:01.112215+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "mlb",
+        "fair_yes_prob": 0.22,
+        "x_sentiment": "bearish",
+        "news_summary": "Padres heavily favored at home with strong pitching matchup and better record.",
+        "hours_until_expiry": 1.16,
+        "yes_ask": 0.89,
+        "no_ask": 0.12,
+        "volume": 720328.92,
+        "reason": "Market prices A's at 0.89 despite consistent model lean toward SD. Concrete home/pitching edge against struggling A's. Strong edge on NO."
+      },
+      "order_id": "c2ed78d8-8f94-4037-9626-52a6ef84a586",
+      "family": "mlb",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-05-24T22:01:01.112215+00:00",
+      "resolved_at": null
+    },
     {
       "ticker": "KXEPLGAME-26MAY24CRYARS-ARS",
       "title": "Crystal Palace vs Arsenal Winner? [YES=Arsenal | NO=Arsenal]",
