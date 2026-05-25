@@ -1,32 +1,70 @@
 {
-  "generated_at": "2026-05-25T14:01:49.261994+00:00",
+  "generated_at": "2026-05-25T15:07:18.411489+00:00",
   "heuristic": {
-    "generated_at": "2026-05-25T14:01:49.261992+00:00",
+    "generated_at": "2026-05-25T15:07:01.810218+00:00",
     "headline": "Cautious tighten-up",
     "recommended_config": {
       "max_trade_dollars": 5.0,
       "max_live_trades_per_run": 1,
-      "min_confidence": 65,
-      "min_edge_pct": 15,
+      "min_confidence": 76,
+      "min_edge_pct": 8.0,
       "min_volume": 2500,
       "min_hours_to_expiry": 0.25,
       "max_hours_to_expiry": 16.0,
-      "size_fraction_of_balance": 0.1,
+      "size_fraction_of_balance": 0.05,
       "hard_blocked_families": [
         "crypto",
         "fx",
-        "multi"
+        "multi",
+        "props"
       ]
     },
     "notes": [
+      "Losses are still outrunning wins. Keep size small until expectancy flips positive.",
+      "props is bleeding money so far. Bench it until the thesis improves.",
       "Still in drawdown. Trade like a sniper, not a slot machine."
     ],
-    "best_confidence_floor": 65,
-    "best_edge_floor": 15
+    "best_confidence_floor": 75,
+    "best_edge_floor": 5
   },
   "gpt_review": {
-    "status": "skipped",
-    "reason": "not run"
+    "status": "ok",
+    "verdict": "unprofitable, miscalibrated, and still on probation",
+    "thesis": "The bot has stopped the most catastrophic behavior, but the live stack is still losing badly enough that survival\u2014not growth\u2014is the job. Grok_live is less broken than the legacy/rule junk, yet its edge estimates still do not deserve trust.",
+    "strengths": [
+      "The worst source of damage is clearly identified: crypto/rule/legacy logic was a disaster and is now effectively quarantined.",
+      "Open trade count is low enough that portfolio sprawl is no longer the main problem.",
+      "Grok_live has produced a few legitimate wins, so the system may be salvageable with tighter selection.",
+      "The current heuristic settings are directionally right: smaller size, higher thresholds, and blocked props."
+    ],
+    "problems": [
+      "Overall stats are still awful: 15% win rate, -3.78 expectancy per trade, and 0.13 profit factor.",
+      "Grok_live remains meaningfully negative at -2.36 expectancy and 0.28 profit factor.",
+      "Confidence and edge are still miscalibrated, especially in soccer where 79% average confidence produced ugly losses.",
+      "NBA trades were thin-edge garbage and should never have cleared live filters.",
+      "Duplicate exposure on the same soccer event amplified losses and shows weak risk controls.",
+      "The bot is still trading too many subjective opinions instead of waiting for high-clarity, catalyst-backed spots."
+    ],
+    "actions": [
+      "Keep crypto, FX, multi, and props hard-blocked with no exceptions.",
+      "Add same-event and same-thesis deduplication so one match cannot create multiple correlated positions.",
+      "Restrict live trading to straight sides/moneylines only until grok_live posts positive expectancy over a larger sample.",
+      "Raise entry standards further and reject low-quality single-digit edges unless confidence and catalyst quality are exceptional.",
+      "Pause soccer if the next 3 settled soccer trades are not net positive.",
+      "Keep max one new live trade per run and maintain very low concurrent exposure until at least 25 grok_live trades settle with improved expectancy.",
+      "Run calibration audits by family and confidence bucket; if 75%+ confidence picks are still losing, raise thresholds again instead of trusting the score."
+    ],
+    "recommended_config": {
+      "min_confidence": 78,
+      "min_edge_pct": 10,
+      "size_fraction_of_balance": 0.04,
+      "hard_blocked_families": [
+        "crypto",
+        "fx",
+        "multi",
+        "props"
+      ]
+    }
   },
   "latest_opportunities": [
     {
