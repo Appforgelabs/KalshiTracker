@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T00:04:41.250831+00:00",
+  "generated_at": "2026-05-29T16:05:16.521137+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 23,
-    "open_trades": 0,
+    "open_trades": 1,
     "wins": 6,
     "losses": 17,
     "win_rate": 26.1,
@@ -45,6 +45,20 @@
       "avg_edge_pct": 6.0,
       "avg_confidence": 68.0,
       "profit_factor": 999.0
+    },
+    {
+      "name": "nhl",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
     },
     {
       "name": "mlb",
@@ -120,7 +134,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 15,
+      "trades": 16,
       "settled": 15,
       "wins": 6,
       "losses": 9,
@@ -164,7 +178,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 15,
+      "trades": 16,
       "settled": 15,
       "wins": 6,
       "losses": 9,
@@ -236,7 +250,7 @@
     },
     {
       "name": "80-84",
-      "trades": 3,
+      "trades": 4,
       "settled": 3,
       "wins": 0,
       "losses": 3,
@@ -294,7 +308,7 @@
     },
     {
       "name": "05-09",
-      "trades": 6,
+      "trades": 7,
       "settled": 6,
       "wins": 2,
       "losses": 4,
@@ -839,7 +853,45 @@
       "metadata": {}
     }
   ],
-  "recent_open": [],
+  "recent_open": [
+    {
+      "ticker": "KXNHLGAME-26MAY29MTLCAR-CAR",
+      "title": "Game 5: Montreal at Carolina Winner? [YES=CAR Hurricanes | NO=CAR Hurricanes]",
+      "side": "yes",
+      "count": 2,
+      "contracts": 2,
+      "price": 0.7,
+      "cost_dollars": 1.4,
+      "cost": 1.4,
+      "max_profit_dollars": 0.6,
+      "max_profit": 0.6,
+      "confidence": 80.0,
+      "edge_pct": 9.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-05-29T12:01:01.577710+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "nhl",
+        "fair_yes_prob": 0.79,
+        "x_sentiment": "bullish",
+        "news_summary": "Carolina leads series 3-1 after 4-0 shutout; 6-0 road playoff record and strong possession metrics.",
+        "hours_until_expiry": 15.0,
+        "yes_ask": 0.7,
+        "no_ask": 0.31,
+        "volume": 455908.87,
+        "reason": "Canes are the far superior side at home with series momentum and goaltending edge. Market 0.70 is too low relative to concrete dominance indicators."
+      },
+      "order_id": "d2f76b8e-5d04-4a47-a77b-534ccfe3f920",
+      "family": "nhl",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-05-29T12:01:01.577710+00:00",
+      "resolved_at": null
+    }
+  ],
   "equity_curve": [
     {
       "date": "2026-03-21",
