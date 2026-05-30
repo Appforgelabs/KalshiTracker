@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T00:04:28.887079+00:00",
+  "generated_at": "2026-05-30T12:05:09.882098+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -19,16 +19,16 @@
   "account": {
     "starting_balance": 100.74,
     "current_balance": 51.43,
-    "settled_trades": 23,
-    "open_trades": 1,
-    "wins": 6,
+    "settled_trades": 24,
+    "open_trades": 0,
+    "wins": 7,
     "losses": 17,
-    "win_rate": 26.1,
-    "realized_pnl": -69.59,
-    "profit_factor": 0.19,
-    "avg_win": 2.79,
+    "win_rate": 29.2,
+    "realized_pnl": -68.99,
+    "profit_factor": 0.2,
+    "avg_win": 2.48,
     "avg_loss": -5.08,
-    "expectancy_per_trade": -3.03,
+    "expectancy_per_trade": -2.87,
     "return_pct_vs_start": -48.95
   },
   "families": [
@@ -49,16 +49,16 @@
     {
       "name": "nhl",
       "trades": 1,
-      "settled": 0,
-      "wins": 0,
+      "settled": 1,
+      "wins": 1,
       "losses": 0,
-      "win_rate": 0.0,
-      "total_pnl": 0,
-      "expectancy": 0.0,
-      "avg_roi_pct": 0.0,
-      "avg_edge_pct": 0.0,
-      "avg_confidence": 0.0,
-      "profit_factor": 0.0
+      "win_rate": 100.0,
+      "total_pnl": 0.6,
+      "expectancy": 0.6,
+      "avg_roi_pct": 42.86,
+      "avg_edge_pct": 9.0,
+      "avg_confidence": 80.0,
+      "profit_factor": 999.0
     },
     {
       "name": "mlb",
@@ -135,16 +135,16 @@
     {
       "name": "grok",
       "trades": 16,
-      "settled": 15,
-      "wins": 6,
+      "settled": 16,
+      "wins": 7,
       "losses": 9,
-      "win_rate": 40.0,
-      "total_pnl": -22.35,
-      "expectancy": -1.49,
-      "avg_roi_pct": -27.61,
-      "avg_edge_pct": 18.67,
-      "avg_confidence": 72.5,
-      "profit_factor": 0.43
+      "win_rate": 43.8,
+      "total_pnl": -21.75,
+      "expectancy": -1.36,
+      "avg_roi_pct": -23.2,
+      "avg_edge_pct": 18.06,
+      "avg_confidence": 73.0,
+      "profit_factor": 0.44
     },
     {
       "name": "rule",
@@ -179,16 +179,16 @@
     {
       "name": "grok_live",
       "trades": 16,
-      "settled": 15,
-      "wins": 6,
+      "settled": 16,
+      "wins": 7,
       "losses": 9,
-      "win_rate": 40.0,
-      "total_pnl": -22.35,
-      "expectancy": -1.49,
-      "avg_roi_pct": -27.61,
-      "avg_edge_pct": 18.67,
-      "avg_confidence": 72.5,
-      "profit_factor": 0.43
+      "win_rate": 43.8,
+      "total_pnl": -21.75,
+      "expectancy": -1.36,
+      "avg_roi_pct": -23.2,
+      "avg_edge_pct": 18.06,
+      "avg_confidence": 73.0,
+      "profit_factor": 0.44
     },
     {
       "name": "legacy_macro",
@@ -235,6 +235,20 @@
       "profit_factor": 0.58
     },
     {
+      "name": "80-84",
+      "trades": 4,
+      "settled": 4,
+      "wins": 1,
+      "losses": 3,
+      "win_rate": 25.0,
+      "total_pnl": -12.0,
+      "expectancy": -3.0,
+      "avg_roi_pct": -64.28,
+      "avg_edge_pct": 28.5,
+      "avg_confidence": 80.5,
+      "profit_factor": 0.05
+    },
+    {
       "name": "65-69",
       "trades": 8,
       "settled": 8,
@@ -247,20 +261,6 @@
       "avg_edge_pct": 12.57,
       "avg_confidence": 66.1,
       "profit_factor": 0.06
-    },
-    {
-      "name": "80-84",
-      "trades": 4,
-      "settled": 3,
-      "wins": 0,
-      "losses": 3,
-      "win_rate": 0.0,
-      "total_pnl": -12.6,
-      "expectancy": -4.2,
-      "avg_roi_pct": -100.0,
-      "avg_edge_pct": 35.0,
-      "avg_confidence": 80.7,
-      "profit_factor": 0.0
     },
     {
       "name": "90-94",
@@ -309,16 +309,16 @@
     {
       "name": "05-09",
       "trades": 7,
-      "settled": 6,
-      "wins": 2,
+      "settled": 7,
+      "wins": 3,
       "losses": 4,
-      "win_rate": 33.3,
-      "total_pnl": -10.97,
-      "expectancy": -1.83,
-      "avg_roi_pct": -38.41,
-      "avg_edge_pct": 6.83,
-      "avg_confidence": 68.0,
-      "profit_factor": 0.42
+      "win_rate": 42.9,
+      "total_pnl": -10.37,
+      "expectancy": -1.48,
+      "avg_roi_pct": -26.8,
+      "avg_edge_pct": 7.14,
+      "avg_confidence": 69.7,
+      "profit_factor": 0.45
     },
     {
       "name": "15-19",
@@ -420,6 +420,46 @@
     }
   ],
   "recent_settled": [
+    {
+      "ticker": "KXNHLGAME-26MAY29MTLCAR-CAR",
+      "title": "Game 5: Montreal at Carolina Winner? [YES=CAR Hurricanes | NO=CAR Hurricanes]",
+      "side": "yes",
+      "count": 2,
+      "contracts": 2,
+      "price": 0.7,
+      "cost_dollars": 1.4,
+      "cost": 1.4,
+      "max_profit_dollars": 0.6,
+      "max_profit": 0.6,
+      "confidence": 80.0,
+      "edge_pct": 9.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-05-29T12:01:01.577710+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "nhl",
+        "fair_yes_prob": 0.79,
+        "x_sentiment": "bullish",
+        "news_summary": "Carolina leads series 3-1 after 4-0 shutout; 6-0 road playoff record and strong possession metrics.",
+        "hours_until_expiry": 15.0,
+        "yes_ask": 0.7,
+        "no_ask": 0.31,
+        "volume": 455908.87,
+        "reason": "Canes are the far superior side at home with series momentum and goaltending edge. Market 0.70 is too low relative to concrete dominance indicators."
+      },
+      "order_id": "d2f76b8e-5d04-4a47-a77b-534ccfe3f920",
+      "result": "win",
+      "settled": true,
+      "market_result": "yes",
+      "resolved_at": "2026-05-30T12:00:09.034153+00:00",
+      "realized_pnl": 0.6,
+      "roi_pct": 42.86,
+      "family": "nhl",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "opened_at": "2026-05-29T12:01:01.577710+00:00"
+    },
     {
       "ticker": "KXNBAGAME-26MAY25NYKCLE-NYK",
       "title": "Game 4: New York at Cleveland Winner? [YES=New York | NO=New York]",
@@ -823,75 +863,9 @@
       "contracts": 9,
       "opened_at": "2026-05-22T12:01:45.445338+00:00",
       "metadata": {}
-    },
-    {
-      "ticker": "KXNBAPTS-26MAY21CLENYK-NYKJBRUNSON11-25",
-      "title": "Jalen Brunson: 25+ points",
-      "side": "yes",
-      "count": 6,
-      "price": 0.68,
-      "cost_dollars": 4.08,
-      "max_profit_dollars": 1.92,
-      "confidence": 75.0,
-      "edge_pct": 8.0,
-      "signal_source": "grok_x_news",
-      "dry_run": false,
-      "date": "2026-05-21T14:04:53.826878+00:00",
-      "status": "placed",
-      "order_id": "209e85cd-d51e-49ef-8fc1-eeb2825eeb76",
-      "result": "loss",
-      "settled": true,
-      "market_result": "no",
-      "resolved_at": "2026-05-25T15:05:27.514178+00:00",
-      "realized_pnl": -4.08,
-      "roi_pct": -100.0,
-      "family": "props",
-      "strategy": "grok_live",
-      "model_source": "grok",
-      "contracts": 6,
-      "opened_at": "2026-05-21T14:04:53.826878+00:00",
-      "metadata": {}
     }
   ],
-  "recent_open": [
-    {
-      "ticker": "KXNHLGAME-26MAY29MTLCAR-CAR",
-      "title": "Game 5: Montreal at Carolina Winner? [YES=CAR Hurricanes | NO=CAR Hurricanes]",
-      "side": "yes",
-      "count": 2,
-      "contracts": 2,
-      "price": 0.7,
-      "cost_dollars": 1.4,
-      "cost": 1.4,
-      "max_profit_dollars": 0.6,
-      "max_profit": 0.6,
-      "confidence": 80.0,
-      "edge_pct": 9.0,
-      "signal_source": "grok_x_news",
-      "dry_run": false,
-      "date": "2026-05-29T12:01:01.577710+00:00",
-      "status": "placed",
-      "metadata": {
-        "family": "nhl",
-        "fair_yes_prob": 0.79,
-        "x_sentiment": "bullish",
-        "news_summary": "Carolina leads series 3-1 after 4-0 shutout; 6-0 road playoff record and strong possession metrics.",
-        "hours_until_expiry": 15.0,
-        "yes_ask": 0.7,
-        "no_ask": 0.31,
-        "volume": 455908.87,
-        "reason": "Canes are the far superior side at home with series momentum and goaltending edge. Market 0.70 is too low relative to concrete dominance indicators."
-      },
-      "order_id": "d2f76b8e-5d04-4a47-a77b-534ccfe3f920",
-      "family": "nhl",
-      "strategy": "grok_live",
-      "model_source": "grok",
-      "realized_pnl": 0.0,
-      "roi_pct": 0.0,
-      "opened_at": "2026-05-29T12:01:01.577710+00:00",
-      "resolved_at": null
-    }
-  ],
+  "recent_open": [],
   "equity_curve": [
     {
       "date": "2026-03-21",
@@ -932,6 +906,10 @@
     {
       "date": "2026-05-25",
       "balance": 31.15
+    },
+    {
+      "date": "2026-05-29",
+      "balance": 31.75
     },
     {
       "date": "2026-05-30",
