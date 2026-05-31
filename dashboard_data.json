@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T00:04:27.799881+00:00",
+  "generated_at": "2026-05-31T18:04:27.745228+00:00",
   "project": {
     "name": "KalshiTracker",
     "tagline": "Grok trades. GPT audits. Dashboard keeps score."
@@ -8,7 +8,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 24,
-    "open_trades": 0,
+    "open_trades": 1,
     "wins": 7,
     "losses": 17,
     "win_rate": 29.2,
@@ -36,7 +36,7 @@
     ]
   },
   "heuristic": {
-    "generated_at": "2026-05-31T00:04:27.782804+00:00",
+    "generated_at": "2026-05-31T18:04:27.728123+00:00",
     "headline": "Cautious tighten-up",
     "recommended_config": {
       "max_trade_dollars": 5.0,
@@ -97,7 +97,7 @@
     },
     {
       "name": "mlb",
-      "trades": 3,
+      "trades": 4,
       "settled": 3,
       "wins": 1,
       "losses": 2,
@@ -169,7 +169,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 16,
+      "trades": 17,
       "settled": 16,
       "wins": 7,
       "losses": 9,
@@ -213,7 +213,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 16,
+      "trades": 17,
       "settled": 16,
       "wins": 7,
       "losses": 9,
@@ -243,7 +243,7 @@
   "confidence_buckets": [
     {
       "name": "75-79",
-      "trades": 5,
+      "trades": 6,
       "settled": 5,
       "wins": 4,
       "losses": 1,
@@ -357,7 +357,7 @@
     },
     {
       "name": "15-19",
-      "trades": 4,
+      "trades": 5,
       "settled": 4,
       "wins": 1,
       "losses": 3,
@@ -950,16 +950,39 @@
       "metadata": {}
     }
   ],
-  "open_positions": [],
+  "open_positions": [
+    {
+      "ticker": "KXMLBGAME-26MAY311340ATLCIN-ATL",
+      "title": "Atlanta vs Cincinnati Winner? [YES=Atlanta | NO=Atlanta]",
+      "side": "yes",
+      "cost_dollars": 1.65,
+      "price": 0.55,
+      "confidence": 78,
+      "edge_pct": 16.0,
+      "opened_at": "2026-05-31T16:00:29.929331+00:00",
+      "signal_source": "grok_x_news",
+      "metadata": {
+        "family": "mlb",
+        "fair_yes_prob": 0.71,
+        "x_sentiment": "bullish",
+        "news_summary": "Braves favored to complete sweep; Reds pitching staff depleted by injuries.",
+        "hours_until_expiry": 4.66,
+        "yes_ask": 0.55,
+        "no_ask": 0.46,
+        "volume": 891144.95,
+        "reason": "Braves have clear roster and momentum edge; sharp consensus and X chatter lean heavily ATL ML + Over. Kalshi 55% offers strong actionable edge on the favorite with concrete opponent weakness."
+      }
+    }
+  ],
   "latest_opportunities": [
     {
-      "ticker": "KXNBASPREAD-26MAY30SASOKC-OKC3",
-      "title": "Oklahoma City wins by over 3.5 points?",
+      "ticker": "KXMLBGAME-26MAY311340ATLCIN-ATL",
+      "title": "Atlanta vs Cincinnati Winner?",
       "series_ticker": "",
-      "hours_until_expiry": 3.0,
-      "yes_ask": 0.48,
-      "no_ask": 0.53,
-      "volume": 3117364.24,
+      "hours_until_expiry": 2.66,
+      "yes_ask": 0.52,
+      "no_ask": 0.49,
+      "volume": 2412873.94,
       "direction": "UNCLEAR",
       "confidence": 0,
       "reason": "Grok returned no row for this market",
@@ -968,73 +991,73 @@
       "suggested_price": null
     },
     {
-      "ticker": "KXMLBGAME-26MAY302205NYYATH-NYY",
+      "ticker": "KXMLBGAME-26MAY311340LAATB-TB",
+      "title": "Los Angeles A vs Tampa Bay Winner?",
+      "series_ticker": "",
+      "hours_until_expiry": 2.66,
+      "yes_ask": 0.75,
+      "no_ask": 0.26,
+      "volume": 804794.43,
+      "direction": "UNCLEAR",
+      "confidence": 0,
+      "reason": "Grok returned no row for this market",
+      "edge": 0.0,
+      "suggested_side": null,
+      "suggested_price": null
+    },
+    {
+      "ticker": "KXMLBGAME-26MAY311335MINPIT-PIT",
+      "title": "Minnesota vs Pittsburgh Winner?",
+      "series_ticker": "",
+      "hours_until_expiry": 2.58,
+      "yes_ask": 0.75,
+      "no_ask": 0.26,
+      "volume": 475598.18,
+      "direction": "UNCLEAR",
+      "confidence": 0,
+      "reason": "Grok returned no row for this market",
+      "edge": 0.0,
+      "suggested_side": null,
+      "suggested_price": null
+    },
+    {
+      "ticker": "KXMLBGAME-26MAY311410MILHOU-MIL",
+      "title": "Milwaukee vs Houston Winner?",
+      "series_ticker": "",
+      "hours_until_expiry": 3.16,
+      "yes_ask": 0.65,
+      "no_ask": 0.36,
+      "volume": 407428.82,
+      "direction": "UNCLEAR",
+      "confidence": 0,
+      "reason": "Grok returned no row for this market",
+      "edge": 0.0,
+      "suggested_side": null,
+      "suggested_price": null
+    },
+    {
+      "ticker": "KXMLBSPREAD-26MAY311340ATLCIN-ATL2",
+      "title": "Atlanta wins by over 1.5 runs?",
+      "series_ticker": "",
+      "hours_until_expiry": 2.66,
+      "yes_ask": 0.4,
+      "no_ask": 0.61,
+      "volume": 382000.85,
+      "direction": "UNCLEAR",
+      "confidence": 0,
+      "reason": "Grok returned no row for this market",
+      "edge": 0.0,
+      "suggested_side": null,
+      "suggested_price": null
+    },
+    {
+      "ticker": "KXMLBGAME-26MAY311605NYYATH-NYY",
       "title": "New York Y vs A's Winner?",
       "series_ticker": "",
       "hours_until_expiry": 5.08,
-      "yes_ask": 0.6,
-      "no_ask": 0.41,
-      "volume": 672097.63,
-      "direction": "UNCLEAR",
-      "confidence": 0,
-      "reason": "Grok returned no row for this market",
-      "edge": 0.0,
-      "suggested_side": null,
-      "suggested_price": null
-    },
-    {
-      "ticker": "KXNBATOTAL-26MAY30SASOKC-211",
-      "title": "Game 7: San Antonio at Oklahoma City: Total Points",
-      "series_ticker": "",
-      "hours_until_expiry": 3.0,
-      "yes_ask": 0.53,
-      "no_ask": 0.48,
-      "volume": 2031133.08,
-      "direction": "UNCLEAR",
-      "confidence": 0,
-      "reason": "Grok returned no row for this market",
-      "edge": 0.0,
-      "suggested_side": null,
-      "suggested_price": null
-    },
-    {
-      "ticker": "KXMLBSPREAD-26MAY301915ATLCIN-ATL2",
-      "title": "Atlanta wins by over 1.5 runs?",
-      "series_ticker": "",
-      "hours_until_expiry": 2.25,
-      "yes_ask": 0.37,
-      "no_ask": 0.64,
-      "volume": 622326.41,
-      "direction": "UNCLEAR",
-      "confidence": 0,
-      "reason": "Grok returned no row for this market",
-      "edge": 0.0,
-      "suggested_side": null,
-      "suggested_price": null
-    },
-    {
-      "ticker": "KXMLBGAME-26MAY302210PHILAD-LAD",
-      "title": "Philadelphia vs Los Angeles D Winner?",
-      "series_ticker": "",
-      "hours_until_expiry": 5.16,
-      "yes_ask": 0.55,
-      "no_ask": 0.46,
-      "volume": 555688.87,
-      "direction": "UNCLEAR",
-      "confidence": 0,
-      "reason": "Grok returned no row for this market",
-      "edge": 0.0,
-      "suggested_side": null,
-      "suggested_price": null
-    },
-    {
-      "ticker": "KXNBAPTS-26MAY30SASOKC-SASVWEMBANYAMA1-25",
-      "title": "Victor Wembanyama: 25+ points",
-      "series_ticker": "",
-      "hours_until_expiry": 3.0,
       "yes_ask": 0.62,
       "no_ask": 0.39,
-      "volume": 114319.6,
+      "volume": 332052.69,
       "direction": "UNCLEAR",
       "confidence": 0,
       "reason": "Grok returned no row for this market",

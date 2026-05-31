@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T00:04:27.782382+00:00",
+  "generated_at": "2026-05-31T18:04:27.727693+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 24,
-    "open_trades": 0,
+    "open_trades": 1,
     "wins": 7,
     "losses": 17,
     "win_rate": 29.2,
@@ -62,7 +62,7 @@
     },
     {
       "name": "mlb",
-      "trades": 3,
+      "trades": 4,
       "settled": 3,
       "wins": 1,
       "losses": 2,
@@ -134,7 +134,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 16,
+      "trades": 17,
       "settled": 16,
       "wins": 7,
       "losses": 9,
@@ -178,7 +178,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 16,
+      "trades": 17,
       "settled": 16,
       "wins": 7,
       "losses": 9,
@@ -208,7 +208,7 @@
   "confidence_buckets": [
     {
       "name": "75-79",
-      "trades": 5,
+      "trades": 6,
       "settled": 5,
       "wins": 4,
       "losses": 1,
@@ -322,7 +322,7 @@
     },
     {
       "name": "15-19",
-      "trades": 4,
+      "trades": 5,
       "settled": 4,
       "wins": 1,
       "losses": 3,
@@ -865,7 +865,45 @@
       "metadata": {}
     }
   ],
-  "recent_open": [],
+  "recent_open": [
+    {
+      "ticker": "KXMLBGAME-26MAY311340ATLCIN-ATL",
+      "title": "Atlanta vs Cincinnati Winner? [YES=Atlanta | NO=Atlanta]",
+      "side": "yes",
+      "count": 3,
+      "contracts": 3,
+      "price": 0.55,
+      "cost_dollars": 1.65,
+      "cost": 1.65,
+      "max_profit_dollars": 1.35,
+      "max_profit": 1.35,
+      "confidence": 78.0,
+      "edge_pct": 16.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-05-31T16:00:29.929331+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "mlb",
+        "fair_yes_prob": 0.71,
+        "x_sentiment": "bullish",
+        "news_summary": "Braves favored to complete sweep; Reds pitching staff depleted by injuries.",
+        "hours_until_expiry": 4.66,
+        "yes_ask": 0.55,
+        "no_ask": 0.46,
+        "volume": 891144.95,
+        "reason": "Braves have clear roster and momentum edge; sharp consensus and X chatter lean heavily ATL ML + Over. Kalshi 55% offers strong actionable edge on the favorite with concrete opponent weakness."
+      },
+      "order_id": "170c3fd6-e47d-424b-9292-802120afae6a",
+      "family": "mlb",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-05-31T16:00:29.929331+00:00",
+      "resolved_at": null
+    }
+  ],
   "equity_curve": [
     {
       "date": "2026-03-21",
