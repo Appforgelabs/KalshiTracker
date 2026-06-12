@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T00:00:43.533578+00:00",
+  "generated_at": "2026-06-12T12:01:31.126112+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 25,
-    "open_trades": 0,
+    "open_trades": 1,
     "wins": 7,
     "losses": 18,
     "win_rate": 28.0,
@@ -59,6 +59,20 @@
       "avg_edge_pct": 9.0,
       "avg_confidence": 80.0,
       "profit_factor": 999.0
+    },
+    {
+      "name": "other",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
     },
     {
       "name": "nba",
@@ -134,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 17,
+      "trades": 18,
       "settled": 17,
       "wins": 7,
       "losses": 10,
@@ -178,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 17,
+      "trades": 18,
       "settled": 17,
       "wins": 7,
       "losses": 10,
@@ -236,7 +250,7 @@
     },
     {
       "name": "80-84",
-      "trades": 4,
+      "trades": 5,
       "settled": 4,
       "wins": 1,
       "losses": 3,
@@ -305,6 +319,20 @@
       "avg_edge_pct": 12.75,
       "avg_confidence": 73.2,
       "profit_factor": 1.51
+    },
+    {
+      "name": "20-24",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
     },
     {
       "name": "05-09",
@@ -877,7 +905,45 @@
       "metadata": {}
     }
   ],
-  "recent_open": [],
+  "recent_open": [
+    {
+      "ticker": "KXWCGAME-26JUN12USAPAR-USA",
+      "title": "USA vs Paraguay Winner? [YES=USA | NO=USA]",
+      "side": "yes",
+      "count": 3,
+      "contracts": 3,
+      "price": 0.48,
+      "cost_dollars": 1.44,
+      "cost": 1.44,
+      "max_profit_dollars": 1.56,
+      "max_profit": 1.56,
+      "confidence": 80.0,
+      "edge_pct": 22.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-06-12T12:01:27.362226+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "other",
+        "fair_yes_prob": 0.7,
+        "x_sentiment": "bullish",
+        "news_summary": "USA host Paraguay in World Cup opener at SoFi with full strength roster; Paraguay missing key attacker Enciso.",
+        "hours_until_expiry": 16.0,
+        "yes_ask": 0.48,
+        "no_ask": 0.53,
+        "volume": 4007562.12,
+        "reason": "Home crowd, superior squad depth, and motivation for statement win. Paraguay organized but overmatched on paper. Market near 50% creates strong actionable edge for USA."
+      },
+      "order_id": "7bcf4d73-b3db-4e4f-8ace-f25bac736cc8",
+      "family": "other",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-06-12T12:01:27.362226+00:00",
+      "resolved_at": null
+    }
+  ],
   "equity_curve": [
     {
       "date": "2026-03-21",
