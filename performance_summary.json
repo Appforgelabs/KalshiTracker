@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T18:00:38.755195+00:00",
+  "generated_at": "2026-06-13T20:00:40.213724+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 26,
-    "open_trades": 1,
+    "open_trades": 2,
     "wins": 8,
     "losses": 18,
     "win_rate": 30.8,
@@ -90,7 +90,7 @@
     },
     {
       "name": "mlb",
-      "trades": 4,
+      "trades": 5,
       "settled": 4,
       "wins": 1,
       "losses": 3,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 19,
+      "trades": 20,
       "settled": 18,
       "wins": 8,
       "losses": 10,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 19,
+      "trades": 20,
       "settled": 18,
       "wins": 8,
       "losses": 10,
@@ -250,7 +250,7 @@
     },
     {
       "name": "80-84",
-      "trades": 6,
+      "trades": 7,
       "settled": 5,
       "wins": 2,
       "losses": 3,
@@ -392,7 +392,7 @@
     },
     {
       "name": "30-34",
-      "trades": 3,
+      "trades": 4,
       "settled": 2,
       "wins": 0,
       "losses": 2,
@@ -918,6 +918,43 @@
     }
   ],
   "recent_open": [
+    {
+      "ticker": "KXMLBGAME-26JUN131410STLMIN-STL",
+      "title": "St. Louis vs Minnesota Winner? [YES=St. Louis | NO=St. Louis]",
+      "side": "no",
+      "count": 10,
+      "contracts": 10,
+      "price": 0.16,
+      "cost_dollars": 1.6,
+      "cost": 1.6,
+      "max_profit_dollars": 8.4,
+      "max_profit": 8.4,
+      "confidence": 80.0,
+      "edge_pct": 34.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-06-13T20:00:36.725530+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "mlb",
+        "fair_yes_prob": 0.48,
+        "x_sentiment": "bearish",
+        "news_summary": "Twins won 9-8 in a late comeback with three homers; Cardinals blew a 4-0 lead.",
+        "hours_until_expiry": 1.16,
+        "yes_ask": 0.83,
+        "no_ask": 0.18,
+        "volume": 2874118.37,
+        "reason": "Game has concluded with Minnesota victory. 83% price on St. Louis is now invalid. Market appears stale or unresolved but outcome is known."
+      },
+      "order_id": "88702350-575f-4080-a754-949916d43b98",
+      "family": "mlb",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-06-13T20:00:36.725530+00:00",
+      "resolved_at": null
+    },
     {
       "ticker": "KXNBAGAME-26JUN13NYKSAS-NYK",
       "title": "Game 5: New York at San Antonio Winner? [YES=New York | NO=New York]",
