@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T22:00:36.931632+00:00",
+  "generated_at": "2026-06-14T00:00:52.318013+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 27,
-    "open_trades": 1,
+    "open_trades": 2,
     "wins": 8,
     "losses": 19,
     "win_rate": 29.6,
@@ -48,7 +48,7 @@
     },
     {
       "name": "other",
-      "trades": 1,
+      "trades": 2,
       "settled": 1,
       "wins": 1,
       "losses": 0,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 20,
+      "trades": 21,
       "settled": 19,
       "wins": 8,
       "losses": 11,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 20,
+      "trades": 21,
       "settled": 19,
       "wins": 8,
       "losses": 11,
@@ -250,7 +250,7 @@
     },
     {
       "name": "80-84",
-      "trades": 7,
+      "trades": 8,
       "settled": 6,
       "wins": 2,
       "losses": 4,
@@ -333,6 +333,20 @@
       "avg_edge_pct": 12.75,
       "avg_confidence": 73.2,
       "profit_factor": 1.51
+    },
+    {
+      "name": "50-54",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
     },
     {
       "name": "05-09",
@@ -931,6 +945,43 @@
   ],
   "recent_open": [
     {
+      "ticker": "KXWCGAME-26JUN13BRAMAR-TIE",
+      "title": "Brazil vs Morocco Winner? [YES=Tie | NO=Tie]",
+      "side": "no",
+      "count": 9,
+      "contracts": 9,
+      "price": 0.16,
+      "cost_dollars": 1.44,
+      "cost": 1.44,
+      "max_profit_dollars": 7.56,
+      "max_profit": 7.56,
+      "confidence": 80.0,
+      "edge_pct": 53.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-06-14T00:00:49.038811+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "other",
+        "fair_yes_prob": 0.28,
+        "x_sentiment": "bearish",
+        "news_summary": "Brazil heavy favorites; pre-match chatter expected Brazil win or narrow scoreline, not high-probability tie.",
+        "hours_until_expiry": 0.99,
+        "yes_ask": 0.82,
+        "no_ask": 0.19,
+        "volume": 7179709.15,
+        "reason": "82% on a tie is extremely overpriced in a Brazil World Cup match. No concrete catalyst supports such high tie probability."
+      },
+      "order_id": "15b6ed84-6ff9-499e-8b4b-9d567a347b29",
+      "family": "other",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-06-14T00:00:49.038811+00:00",
+      "resolved_at": null
+    },
+    {
       "ticker": "KXNBAGAME-26JUN13NYKSAS-NYK",
       "title": "Game 5: New York at San Antonio Winner? [YES=New York | NO=New York]",
       "side": "yes",
@@ -1023,6 +1074,10 @@
     },
     {
       "date": "2026-06-13",
+      "balance": 30.06
+    },
+    {
+      "date": "2026-06-14",
       "balance": 51.43
     }
   ]
