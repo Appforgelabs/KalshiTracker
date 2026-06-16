@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T00:00:26.450758+00:00",
+  "generated_at": "2026-06-16T12:01:23.700064+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 29,
-    "open_trades": 0,
+    "open_trades": 1,
     "wins": 9,
     "losses": 20,
     "win_rate": 31.0,
@@ -62,7 +62,7 @@
     },
     {
       "name": "other",
-      "trades": 2,
+      "trades": 3,
       "settled": 2,
       "wins": 1,
       "losses": 1,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 21,
+      "trades": 22,
       "settled": 21,
       "wins": 9,
       "losses": 12,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 21,
+      "trades": 22,
       "settled": 21,
       "wins": 9,
       "losses": 12,
@@ -250,7 +250,7 @@
     },
     {
       "name": "80-84",
-      "trades": 8,
+      "trades": 9,
       "settled": 8,
       "wins": 3,
       "losses": 5,
@@ -322,7 +322,7 @@
     },
     {
       "name": "10-14",
-      "trades": 4,
+      "trades": 5,
       "settled": 4,
       "wins": 3,
       "losses": 1,
@@ -943,7 +943,45 @@
       "opened_at": "2026-05-23T18:00:57.310322+00:00"
     }
   ],
-  "recent_open": [],
+  "recent_open": [
+    {
+      "ticker": "KXWCGAME-26JUN16FRASEN-FRA",
+      "title": "France vs Senegal Winner? [YES=France | NO=France]",
+      "side": "yes",
+      "count": 2,
+      "contracts": 2,
+      "price": 0.66,
+      "cost_dollars": 1.32,
+      "cost": 1.32,
+      "max_profit_dollars": 0.68,
+      "max_profit": 0.68,
+      "confidence": 80.0,
+      "edge_pct": 11.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-06-16T12:01:19.275729+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "other",
+        "fair_yes_prob": 0.77,
+        "x_sentiment": "bullish",
+        "news_summary": "France heavy favorites with Mbapp\u00e9, strong attack, historical WC dominance; previews expect fast start.",
+        "hours_until_expiry": 10.0,
+        "yes_ask": 0.66,
+        "no_ask": 0.35,
+        "volume": 2812607.9,
+        "reason": "France squad depth and attacking talent far superior. Multiple sources project 2-0/3-1 style wins. yes_ask 0.66 underprices France win probability by ~10-12 points. Clear edge on YES with concrete team news and form."
+      },
+      "order_id": "bd3e732b-6a2e-4c7a-b345-4028aff93fe9",
+      "family": "other",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-06-16T12:01:19.275729+00:00",
+      "resolved_at": null
+    }
+  ],
   "equity_curve": [
     {
       "date": "2026-03-21",
