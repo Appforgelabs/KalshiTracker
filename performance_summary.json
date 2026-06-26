@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T12:01:41.989749+00:00",
+  "generated_at": "2026-06-26T14:00:56.406109+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -34,7 +34,7 @@
   "families": [
     {
       "name": "tennis",
-      "trades": 1,
+      "trades": 2,
       "settled": 1,
       "wins": 1,
       "losses": 0,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 23,
+      "trades": 24,
       "settled": 22,
       "wins": 10,
       "losses": 12,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 23,
+      "trades": 24,
       "settled": 22,
       "wins": 10,
       "losses": 12,
@@ -222,7 +222,7 @@
   "confidence_buckets": [
     {
       "name": "75-79",
-      "trades": 6,
+      "trades": 7,
       "settled": 6,
       "wins": 4,
       "losses": 2,
@@ -347,6 +347,20 @@
       "avg_edge_pct": 12.4,
       "avg_confidence": 74.6,
       "profit_factor": 1.68
+    },
+    {
+      "name": "35-39",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
     },
     {
       "name": "50-54",
