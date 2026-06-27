@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T00:00:48.306047+00:00",
+  "generated_at": "2026-06-27T12:03:27.947954+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -48,7 +48,7 @@
     },
     {
       "name": "other",
-      "trades": 4,
+      "trades": 5,
       "settled": 3,
       "wins": 2,
       "losses": 1,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 24,
+      "trades": 25,
       "settled": 22,
       "wins": 10,
       "losses": 12,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 24,
+      "trades": 25,
       "settled": 22,
       "wins": 10,
       "losses": 12,
@@ -236,7 +236,7 @@
     },
     {
       "name": "85-89",
-      "trades": 1,
+      "trades": 2,
       "settled": 0,
       "wins": 0,
       "losses": 0,
@@ -378,7 +378,7 @@
     },
     {
       "name": "05-09",
-      "trades": 8,
+      "trades": 9,
       "settled": 7,
       "wins": 3,
       "losses": 4,
