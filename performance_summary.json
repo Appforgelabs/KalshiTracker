@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T14:03:08.372146+00:00",
+  "generated_at": "2026-06-30T14:04:57.279611+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 30,
-    "open_trades": 0,
+    "open_trades": 1,
     "wins": 10,
     "losses": 20,
     "win_rate": 33.3,
@@ -90,7 +90,7 @@
     },
     {
       "name": "mlb",
-      "trades": 5,
+      "trades": 6,
       "settled": 5,
       "wins": 1,
       "losses": 4,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 25,
+      "trades": 26,
       "settled": 22,
       "wins": 10,
       "losses": 12,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 25,
+      "trades": 26,
       "settled": 22,
       "wins": 10,
       "losses": 12,
@@ -222,7 +222,7 @@
   "confidence_buckets": [
     {
       "name": "75-79",
-      "trades": 7,
+      "trades": 8,
       "settled": 6,
       "wins": 4,
       "losses": 2,
@@ -406,7 +406,7 @@
     },
     {
       "name": "15-19",
-      "trades": 5,
+      "trades": 6,
       "settled": 5,
       "wins": 1,
       "losses": 4,
@@ -971,7 +971,62 @@
       "opened_at": "2026-05-24T14:00:47.382703+00:00"
     }
   ],
-  "recent_open": [],
+  "recent_open": [
+    {
+      "ticker": "KXMLBGAME-26JUN302140LADATH-LAD",
+      "title": "Los Angeles D vs A's Winner? [YES=Los Angeles D | NO=Los Angeles D]",
+      "side": "yes",
+      "count": 2,
+      "contracts": 2,
+      "price": 0.61,
+      "cost_dollars": 1.22,
+      "cost": 1.22,
+      "max_profit_dollars": 0.78,
+      "max_profit": 0.78,
+      "confidence": 76.0,
+      "edge_pct": 18.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-06-30T14:04:51.621646+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "mlb",
+        "fair_yes_prob": 0.79,
+        "x_sentiment": "bullish",
+        "news_summary": "Dodgers (54-30) stacked lineup (Ohtani, Betts, Freeman, Hern\u00e1ndez return) faces injury-ravaged A's (Wilson, Soderstrom, Gelof out) with rookie 2B debut and LHP Gage Jump starting.",
+        "hours_until_expiry": 14.6,
+        "yes_ask": 0.61,
+        "no_ask": 0.4,
+        "volume": 207660.08,
+        "reason": "Massive talent/health gap persists. 0.61 ask remains clear value on LAD despite slight increase from prior; thesis strongly supports YES."
+      },
+      "order_id": "bf30b8ac-4035-4ae5-9821-e3f87465ef97",
+      "client_order_id": "luka-1782828291",
+      "fill_count": "2.00",
+      "remaining_count": "0.00",
+      "order_payload": {
+        "ticker": "KXMLBGAME-26JUN302140LADATH-LAD",
+        "client_order_id": "luka-1782828291",
+        "side": "bid",
+        "count": "2.00",
+        "price": "0.6100",
+        "time_in_force": "immediate_or_cancel",
+        "self_trade_prevention_type": "taker_at_cross",
+        "post_only": false,
+        "cancel_order_on_pause": true,
+        "reduce_only": false,
+        "subaccount": 0,
+        "exchange_index": -1
+      },
+      "family": "mlb",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-06-30T14:04:51.621646+00:00",
+      "resolved_at": null
+    }
+  ],
   "equity_curve": [
     {
       "date": "2026-03-21",
