@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T12:07:51.834783+00:00",
+  "generated_at": "2026-07-03T12:11:05.861268+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 31,
-    "open_trades": 1,
+    "open_trades": 2,
     "wins": 11,
     "losses": 20,
     "win_rate": 35.5,
@@ -34,7 +34,7 @@
   "families": [
     {
       "name": "tennis",
-      "trades": 3,
+      "trades": 4,
       "settled": 1,
       "wins": 1,
       "losses": 0,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 27,
+      "trades": 28,
       "settled": 23,
       "wins": 11,
       "losses": 12,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 27,
+      "trades": 28,
       "settled": 23,
       "wins": 11,
       "losses": 12,
@@ -250,7 +250,7 @@
     },
     {
       "name": "80-84",
-      "trades": 10,
+      "trades": 11,
       "settled": 9,
       "wins": 4,
       "losses": 5,
@@ -448,7 +448,7 @@
     },
     {
       "name": "65-69",
-      "trades": 1,
+      "trades": 2,
       "settled": 1,
       "wins": 0,
       "losses": 1,
@@ -1003,6 +1003,60 @@
     }
   ],
   "recent_open": [
+    {
+      "ticker": "KXATPMATCH-26JUL03SAFFON-FON",
+      "title": "Will Joao Fonseca win the Safiullin vs Fonseca: Round Of 32 match? [YES=Joao Fonseca | NO=Joao Fonseca]",
+      "side": "yes",
+      "count": 24,
+      "contracts": 24,
+      "price": 0.07,
+      "cost_dollars": 1.68,
+      "cost": 1.68,
+      "max_profit_dollars": 22.32,
+      "max_profit": 22.32,
+      "confidence": 82.0,
+      "edge_pct": 69.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-07-03T12:10:52.100477+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "tennis",
+        "fair_yes_prob": 0.75,
+        "x_sentiment": "bullish",
+        "news_summary": "Fonseca strong favorite; Safiullin fatigued after multiple five-setters and qualifying matches.",
+        "hours_until_expiry": 0.83,
+        "yes_ask": 0.06,
+        "no_ask": 0.95,
+        "volume": 1679029.99,
+        "reason": "Fonseca enters as clear favorite with fresher legs and bigger weapons on grass. Safiullin\u2019s extreme workload creates a concrete fatigue edge for Fonseca. Market YES at 0.06 is severely underpriced relative to realistic probability (~74-78%)."
+      },
+      "order_id": "7a60372f-79b8-4722-9af9-3f9f30eca90c",
+      "client_order_id": "luka-1783080652",
+      "fill_count": "24.00",
+      "remaining_count": "0.00",
+      "order_payload": {
+        "ticker": "KXATPMATCH-26JUL03SAFFON-FON",
+        "client_order_id": "luka-1783080652",
+        "side": "bid",
+        "count": "24.00",
+        "price": "0.0700",
+        "time_in_force": "immediate_or_cancel",
+        "self_trade_prevention_type": "taker_at_cross",
+        "post_only": false,
+        "cancel_order_on_pause": true,
+        "reduce_only": false,
+        "subaccount": 0,
+        "exchange_index": -1
+      },
+      "family": "tennis",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-07-03T12:10:52.100477+00:00",
+      "resolved_at": null
+    },
     {
       "ticker": "KXATPMATCH-26JUL03SAFFON-SAF",
       "title": "Will Roman Safiullin win the Safiullin vs Fonseca: Round Of 32 match? [YES=Roman Safiullin | NO=Roman Safiullin]",
