@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T12:04:51.042325+00:00",
+  "generated_at": "2026-07-03T12:06:51.934234+00:00",
   "config": {
     "max_trade_dollars": 5.0,
     "max_live_trades_per_run": 1,
@@ -20,7 +20,7 @@
     "starting_balance": 100.74,
     "current_balance": 51.43,
     "settled_trades": 31,
-    "open_trades": 0,
+    "open_trades": 1,
     "wins": 11,
     "losses": 20,
     "win_rate": 35.5,
@@ -34,7 +34,7 @@
   "families": [
     {
       "name": "tennis",
-      "trades": 2,
+      "trades": 3,
       "settled": 1,
       "wins": 1,
       "losses": 0,
@@ -148,7 +148,7 @@
   "models": [
     {
       "name": "grok",
-      "trades": 26,
+      "trades": 27,
       "settled": 23,
       "wins": 11,
       "losses": 12,
@@ -192,7 +192,7 @@
     },
     {
       "name": "grok_live",
-      "trades": 26,
+      "trades": 27,
       "settled": 23,
       "wins": 11,
       "losses": 12,
@@ -250,7 +250,7 @@
     },
     {
       "name": "80-84",
-      "trades": 9,
+      "trades": 10,
       "settled": 9,
       "wins": 4,
       "losses": 5,
@@ -350,6 +350,20 @@
     },
     {
       "name": "35-39",
+      "trades": 1,
+      "settled": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "total_pnl": 0,
+      "expectancy": 0.0,
+      "avg_roi_pct": 0.0,
+      "avg_edge_pct": 0.0,
+      "avg_confidence": 0.0,
+      "profit_factor": 0.0
+    },
+    {
+      "name": "55-59",
       "trades": 1,
       "settled": 0,
       "wins": 0,
@@ -988,7 +1002,62 @@
       "opened_at": "2026-05-24T22:01:01.112215+00:00"
     }
   ],
-  "recent_open": [],
+  "recent_open": [
+    {
+      "ticker": "KXATPMATCH-26JUL03SAFFON-SAF",
+      "title": "Will Roman Safiullin win the Safiullin vs Fonseca: Round Of 32 match? [YES=Roman Safiullin | NO=Roman Safiullin]",
+      "side": "no",
+      "count": 12,
+      "contracts": 12,
+      "price": 0.14,
+      "cost_dollars": 1.68,
+      "cost": 1.68,
+      "max_profit_dollars": 10.32,
+      "max_profit": 10.32,
+      "confidence": 80.0,
+      "edge_pct": 59.0,
+      "signal_source": "grok_x_news",
+      "dry_run": false,
+      "date": "2026-07-03T12:06:35.246456+00:00",
+      "status": "placed",
+      "metadata": {
+        "family": "tennis",
+        "fair_yes_prob": 0.25,
+        "x_sentiment": "bearish",
+        "news_summary": "Fonseca strong favorite; Safiullin fatigued after multiple five-setters and qualifying matches.",
+        "hours_until_expiry": 0.94,
+        "yes_ask": 0.88,
+        "no_ask": 0.16,
+        "volume": 1545424.15,
+        "reason": "Fonseca enters as clear favorite with fresher legs and bigger weapons on grass. Safiullin\u2019s extreme workload (three straight five-setters) creates a concrete fatigue edge for Fonseca. Market YES at 0.88 is severely overpriced relative to realistic probability (~22-28%)."
+      },
+      "order_id": "131c4ca9-28be-4f23-a336-fce48dd82dc1",
+      "client_order_id": "luka-1783080395",
+      "fill_count": "0.00",
+      "remaining_count": "0.00",
+      "order_payload": {
+        "ticker": "KXATPMATCH-26JUL03SAFFON-SAF",
+        "client_order_id": "luka-1783080395",
+        "side": "ask",
+        "count": "12.00",
+        "price": "0.8600",
+        "time_in_force": "immediate_or_cancel",
+        "self_trade_prevention_type": "taker_at_cross",
+        "post_only": false,
+        "cancel_order_on_pause": true,
+        "reduce_only": false,
+        "subaccount": 0,
+        "exchange_index": -1
+      },
+      "family": "tennis",
+      "strategy": "grok_live",
+      "model_source": "grok",
+      "realized_pnl": 0.0,
+      "roi_pct": 0.0,
+      "opened_at": "2026-07-03T12:06:35.246456+00:00",
+      "resolved_at": null
+    }
+  ],
   "equity_curve": [
     {
       "date": "2026-03-21",
