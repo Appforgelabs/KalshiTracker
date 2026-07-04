@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T12:05:08.816017+00:00",
+  "generated_at": "2026-07-04T14:03:15.751898+00:00",
   "project": {
     "name": "KalshiTracker",
     "tagline": "Grok trades. GPT audits. Dashboard keeps score."
@@ -36,7 +36,7 @@
     ]
   },
   "heuristic": {
-    "generated_at": "2026-07-04T12:05:08.798858+00:00",
+    "generated_at": "2026-07-04T14:03:15.734056+00:00",
     "headline": "Cautious tighten-up",
     "recommended_config": {
       "max_trade_dollars": 5.0,
